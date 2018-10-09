@@ -1,0 +1,16 @@
+/*.title {
+  color: red;
+}
+
+.subTitle {
+  color: green;
+}
+
+.text {
+  color: blue;
+}*/
+
+.crawler {
+  background-image: url('./stars.jpg') !important;
+  height: 100vh !important;
+}
