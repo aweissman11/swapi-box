@@ -5,7 +5,6 @@ class SWRepository {
 
   randomNumber = () => {
     const rndm = Math.floor(Math.random() * Math.floor(6))
-    console.log(rndm)
     return rndm
   }
 
@@ -22,6 +21,23 @@ class SWRepository {
     return ({title: movie.title, date: movie.release_date, opening: movie.opening_crawl})
     });
    return cleanMovies
+  }
+
+  getItemList = async (page, pageNumber = 1) => {
+    const fetchInfo = `${page}/?page=${pageNumber}`
+    const url = `https://swapi.co/api/${fetchInfo}`
+
+    const response = await fetch(url);
+    const uncleanItemList = await response.json();
+    const cards = await this.cleanItemList(page, uncleanItemList)
+
+    return uncleanItemList
+  }
+
+  cleanItemList = (page, uncleanItemList) => {
+    // switch(page)
+    console.log(uncleanItemList)
+    return uncleanItemList
   }
 
 }
