@@ -1,0 +1,39 @@
+.navigation {
+  position: absolute;
+  top: 40px;
+  color: white;
+  z-index: 9000;
+  width: 100vw;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.navigation nav {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+.navigation a {
+  background-color: rgba(229, 197, 67, .7);
+  border-radius: 20px;
+  height: 40px;
+  line-height: 40px;
+
+  width: 100px;
+}
+
+.navigation a:hover {
+  transform: scale(1.05);
+  border-color: #ffc600;
+  box-shadow: 0 0 1rem #ffc600;
+}
+
+.navigation a:active {
+  transform: scale(.95);
+  border-color: #fff;
+  box-shadow: 0 0 1rem #fff;
+}
