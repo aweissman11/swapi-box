@@ -1,16 +1,90 @@
 import SWRepository from './helper';
 
 describe('SWRepository', () => {
-  const people = new SWRepository(peopleData);
+  describe('getMovieText', () => {
+    let mockcleanMovieText
+    let mockuncleanMovies
+    // let mockrandomNumber
 
+    beforeEach(() => {
+      mockuncleanMovies = [
+        { title: 'StarTrek', date: 'December 31 1999', opening: 'Space: the final frontier.  These are the voyages of the starship Enterprise.  Its five-year mission: to explore strange new worlds. To seek out new life and new civilizations.  To boldly go where no man has gone before!', somethingElse: 'info that will later be removed from this object'},
 
-'pull api movieInfo info'
+        { title: 'A Tale of Two Cities', date: 'January 1 2000', opening: 'It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we', somethingElse: 'info that will be taken out of this object'}
+      ]
+      mockcleanMovieText() = jest.fn()
 
-'all pulled movieInfo info is in readable format'
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({ json: () => Promise.resolve()
+      }))
 
-'movieInfo object is cleaned'
+    })
 
-'movies is passed as an array'
+    it('should call fetch with the correct parameters', async () => {
+      //set-up
 
+      //execution
+
+      //expectation
+    })
+
+    it('should retrieve movie information if status is ok', async () => {
+      //set-up
+
+      //execution
+
+      //expectation
+    })
+
+    it('should throw an error if status is not okay', async () => {
+      //set-up
+
+      //execution
+
+      //expectation
+
+    })
+
+    it('should throw an error if fetch fails', async () => {
+      //set-up
+      //execution
+      //expectation
+    })
+
+  })
+
+  describe('cleanMovieText', () => {
+    let mockuncleanMovies
+    let mockcleanMovies
+
+    beforeEach(() => {
+      mockuncleanMovies = [
+        { title: 'StarTrek', date: 'December 31 1999', opening: 'Space: the final frontier.  These are the voyages of the starship Enterprise.  Its five-year mission: to explore strange new worlds. To seek out new life and new civilizations.  To boldly go where no man has gone before!', somethingElse: 'info that will later be removed from this object'},
+
+        { title: 'A Tale of Two Cities', date: 'January 1 2000', opening: 'It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we', somethingElse: 'info that will be taken out of this object'}
+      ]
+
+      mockcleanMovies = [
+        { title: 'StarTrek', date: 'December 31 1999', opening: 'Space: the final frontier.  These are the voyages of the starship Enterprise.  Its five-year mission: to explore strange new worlds. To seek out new life and new civilizations.  To boldly go where no man has gone before!'},
+
+        { title: 'A Tale of Two Cities', date: 'January 1 2000', opening: 'It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we'}
+      ]
+
+    })
+
+    it('should return the same number of movies', () => {
+      //set-up
+      //execution
+      //expectation
+    })
+
+    it('should remove unnecessary information from the movies', () => {
+      //set-up
+      //execution
+      //expectation
+    })
+    
+  })
 
 })
+
+//NOTE TO DEV TEAM:  remember to add in proptypes to relevant components!!!!
