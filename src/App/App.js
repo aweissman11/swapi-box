@@ -4,6 +4,7 @@ import ScrollSection from '../scroll-section/scroll-section';
 import CardsContainer from '../cards-container/cards-container';
 import Navigation from '../navigation/navigation';
 import './App.css';
+
 import SWRepository from '../helper.js'
 
 class App extends Component {
@@ -11,7 +12,7 @@ class App extends Component {
     super()
     this.state = {
       fetchMethods: new SWRepository(),
-      movies: [],
+      movie: {},
       people: [],
       vehicles: [],
       currentPage: 'scroll'
@@ -21,15 +22,12 @@ class App extends Component {
   changePage = (page) => this.setState({currentPage: page})
 
   async componentDidMount() {
-    const movies = await this.state.fetchMethods.getMovieText();
-    this.setState({ movies })
+    const movie = await this.state.fetchMethods.getMovieText();
+    this.setState({ movie })
   }
 
-// on the display add logic that generates a random numberand then display that index of the movies array.
-
-
   render() {
-    const { currentPage } = this.state
+    const { currentPage, movie } = this.state
 
     return (
       <div className="App">
@@ -38,9 +36,12 @@ class App extends Component {
         />
         {
           (currentPage === 'scroll') ? 
-          <ScrollSection /> : <CardsContainer 
-                                currentPage={currentPage}
-                                />
+          <ScrollSection 
+            movie={movie}
+          /> : 
+          <CardsContainer 
+            currentPage={currentPage}
+          />
         }
       </div>
     );

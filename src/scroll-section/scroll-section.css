@@ -14,3 +14,8 @@
   background-image: url('./stars.jpg') !important;
   height: 100vh !important;
 }
+
+.crawler div {
+  width: 120% !important;
+  left: -10% !important;
+}
