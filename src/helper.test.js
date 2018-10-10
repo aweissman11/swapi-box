@@ -10,6 +10,8 @@ describe('SWRepository', () => {
 
 'movieInfo object is cleaned'
 
+'movies is passed as an array'
+
 
 
 })

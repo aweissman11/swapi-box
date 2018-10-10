@@ -17,7 +17,7 @@ cleanMovieText = (uncleanMovies) => {
   return ({title: movie.title, date: movie.release_date, opening: movie.opening_crawl})
   });
  console.log(cleanMovies);
- return cleanMovies;
+ return cleanMovies
 }
 
 }
