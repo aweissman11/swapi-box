@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+}
+
+.cards-container {
+  background-image: url('../scroll-section/stars.jpg');
+  color: white;
+  height: 100vh;
+}
+
+.container {
+  padding-top: 120px;
+}
+
+.cards {
+  border: yellow 2px solid;
+  border-radius: 20px;
+  display: grid;
+  grid-gap: 15px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  margin: auto;
+  padding: 10px;
+  width: 80%;
+
+}
+
+.card {
+  background-color: rgba(229, 197, 67, .7);
+  border-radius: 20px;
+}

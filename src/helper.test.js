@@ -1,3 +1,14 @@
+<<<<<<< HEAD
+import SWRepository from './helper';
+
+
+describe('SWRepository', () => {
+
+  test('pulls in data', () => {
+    console.log('works')
+    console.log(SWRepository)
+  })
+=======
 import SWRepository from './helper.js';
 
 describe('SWRepository', () => {
@@ -14,4 +25,5 @@ describe('SWRepository', () => {
 
 
 
+>>>>>>> 7763a019f811409c308b76fc947a2636aec299e6
 })
