@@ -10,7 +10,7 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      fetchMethods: new SWRepository,
+      fetchMethods: new SWRepository(),
       movies: [],
       people: [],
       vehicles: [],
