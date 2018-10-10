@@ -6,12 +6,19 @@ class SWRepository {
 getMovieText = async () => {
   const url = 'https://swapi.co/api/films/';
   const response = await fetch(url);
-  const movieInformation = await response.json();
-  return movieInformation
+  const uncleanMovies = await response.json();
+  console.log(uncleanMovies);
+  const movies = await this.cleanMovieText(uncleanMovies.results);
+  return movies
 }
 
-// cleanMovieText = () => {}
-//  const unclean = this.getMovieText;
-// 
+cleanMovieText = (uncleanMovies) => {
+ const cleanMovies = uncleanMovies.map(movie => {
+  return ({title: movie.title, date: movie.release_date, opening: movie.opening_crawl})
+  });
+ console.log(cleanMovies);
+ return cleanMovies;
+}
+
 }
 export default SWRepository;
