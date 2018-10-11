@@ -11,7 +11,6 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      // fetchMethods: new SWRepository(),
       movie: {},
       people: [],
       vehicles: [],
@@ -20,14 +19,9 @@ class App extends Component {
     }
   }
 
-  changePage = async (currentPage) => {
-    const pageRepo = await getItemList(currentPage);
-
-    console.log('pageRepo:', pageRepo)
-
+  changePage = (currentPage) => {
     this.setState({
-      currentPage,
-      pageRepo
+      currentPage
     })
   }
 
@@ -37,7 +31,7 @@ class App extends Component {
   }
 
   render() {
-    const { currentPage, movie } = this.state
+    const { currentPage, movie, fetchMethods } = this.state
 
     return (
       <div className="App">
@@ -49,7 +43,8 @@ class App extends Component {
           <ScrollSection 
             movie={movie}
           /> : 
-          <CardsContainer 
+          <CardsContainer
+            fetchMethods={fetchMethods} 
             currentPage={currentPage}
           />
         }

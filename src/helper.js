@@ -59,8 +59,8 @@
     return Promise.all(speciesPromises)
   }
 
-
   export const fetchCall = async (url) => {
+
     const response = await fetch(url);
     const jason = await response.json();
 
