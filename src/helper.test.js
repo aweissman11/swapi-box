@@ -47,10 +47,17 @@ describe('helper.js', () => {
       await expect(fetchCall(mockURL)).rejects.toEqual(expected)
     })
 
+    // it('should throw an error if fetch fails', async () => {
+    //   //set-up
+    //   const expected = Error('API call failed')
+    //   window.fetch = jest.fn().mockImplementation(() => Promise.reject('API call failed'))
+    //   //execution && expectation
+    //   await expect(fetchCall(mockURL)).rejects.toEqual(expected)
+    // })
+
   })
 
-  describe('getMovieText', () => {
-    let mockcleanMovieText
+  describe('cleanMovieText', () => {
     let mockuncleanMovies
     // let mockrandomNumber
 
@@ -60,42 +67,49 @@ describe('helper.js', () => {
 
         { title: 'A Tale of Two Cities', date: 'January 1 2000', opening: 'It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we', somethingElse: 'info that will be taken out of this object'}
       ]
-      mockcleanMovieText = jest.fn()
-
-      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({ ok: true, json: () => Promise.resolve(mockuncleanMovies)}))
+    })
+    it('should return the same number of movies', () => {
+      //set-up
+      const expected = mockuncleanMovies.length
+      //execution
+      
+      let cleanMovies = cleanMovieText(mockuncleanMovies)
+      //expectation
+      expect(cleanMovies.length).toEqual(expected)
     })
 
-    it('should throw an error if fetch fails', async () => {
+    it('should remove unnecessary information from the movies', () => {
       //set-up
+      const expected = ['title', 'date', 'opening']
       //execution
+      let cleanMovies = cleanMovieText(mockuncleanMovies)
       //expectation
+      expect(Object.keys(cleanMovies[0])).toEqual(expected)
     })
 
   })
-
-  describe('cleanMovieText', () => {
-    let mockuncleanMovies
-    let mockcleanMovies
+  describe('cleanItemList', () => {
+    let mockUncleanItemList
+    let mockPage
+    let cleanList
 
     beforeEach(() => {
-      mockuncleanMovies = [
-        { title: 'StarTrek', date: 'December 31 1999', opening: 'Space: the final frontier.  These are the voyages of the starship Enterprise.  Its five-year mission: to explore strange new worlds. To seek out new life and new civilizations.  To boldly go where no man has gone before!', somethingElse: 'info that will later be removed from this object'},
 
-        { title: 'A Tale of Two Cities', date: 'January 1 2000', opening: 'It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we', somethingElse: 'info that will be taken out of this object'}
-      ]
+      mockUncleanItemList = {results: [
+        { name: 'bob', species: 'human', homeworld: 'Earth', popHome: '500', somethingElse: 'info that will later be removed from this object'},
 
-      mockcleanMovies = [
-        { title: 'StarTrek', date: 'December 31 1999', opening: 'Space: the final frontier.  These are the voyages of the starship Enterprise.  Its five-year mission: to explore strange new worlds. To seek out new life and new civilizations.  To boldly go where no man has gone before!'},
-
-        { title: 'A Tale of Two Cities', date: 'January 1 2000', opening: 'It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we'}
-      ]
-
+        { name: 'bill', species: 'droid', homeworld: 'saturn', popHome: '1500', somethingElse: 'info that will later be removed from this object'}
+      ]}
     })
-
-    it('should return the same number of movies', () => {
+    it('should return the same number of people', () => {
       //set-up
+      const expected = mockUncleanItemList.results.length
       //execution
+      let mockPage = 'people'
+      let cleanList = cleanItemList(mockPage,mockUncleanItemList)
       //expectation
+      console.log(cleanList)
+      expect(cleanList.length).toEqual(expected)
     })
 
     it('should remove unnecessary information from the movies', () => {
@@ -103,7 +117,7 @@ describe('helper.js', () => {
       //execution
       //expectation
     })
-    
+
   })
 
 })
