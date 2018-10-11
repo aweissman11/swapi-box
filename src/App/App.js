@@ -12,10 +12,9 @@ class App extends Component {
     super()
     this.state = {
       movie: {},
-      people: [],
-      vehicles: [],
-      currentPage: 'scroll',
-      pageRepo: []
+      currentPage: 'home',
+      pageRepo: [],
+      pages: ['Home', 'People', 'Planets', 'Vehicles', 'Favorites']
     }
   }
 
@@ -31,15 +30,17 @@ class App extends Component {
   }
 
   render() {
-    const { currentPage, movie, fetchMethods } = this.state
+    const { currentPage, movie, fetchMethods, pages } = this.state
 
     return (
       <div className="App">
         <Navigation
           changePage={this.changePage}
+          currentPage={currentPage}
+          pages={pages}
         />
         {
-          (currentPage === 'scroll') ? 
+          (currentPage === 'home') ? 
           <ScrollSection 
             movie={movie}
           /> : 
