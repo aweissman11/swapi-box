@@ -65,6 +65,8 @@ class SWRepository {
   }
 
 
+
+
   fetchCall = async (url) => {
     const response = await fetch(url);
     const jason = await response.json();
