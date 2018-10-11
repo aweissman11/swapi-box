@@ -1,43 +1,38 @@
-class SWRepository {
-  randomNumber = () => {
+
+  
+  export const randomNumber = () => {
     const rndm = Math.floor(Math.random() * Math.floor(6))
     return rndm
   }
 
-  getMovieText = async () => {
-    console.log('getting movie text');
+  export const getMovieText = async () => {
     const url = 'https://swapi.co/api/films/';
-    const uncleanMovies = await this.fetchCall(url);
-    const movies = await this.cleanMovieText(uncleanMovies.results);
-    return movies[this.randomNumber()]
+    const uncleanMovies = await fetchCall(url);
+    const movies = await cleanMovieText(uncleanMovies.results);
+    return movies[randomNumber()]
   }
 
-  cleanMovieText = (uncleanMovies) => {
-   const cleanMovies = uncleanMovies.map(movie => {
+  export const cleanMovieText = (uncleanMovies) => {
+    console.log(uncleanMovies);
+     const cleanMovies = uncleanMovies.map(movie => {
     return ({title: movie.title, date: movie.release_date, opening: movie.opening_crawl})
     });
    return cleanMovies
   }
 
-  getItemList = async (page, pageNumber = 1) => {
+  export const getItemList = async (page, pageNumber = 1) => {
     const fetchInfo = `${page}/?page=${pageNumber}`
     const url = `https://swapi.co/api/${fetchInfo}`
-
-    // const response = await fetch(url);
-    const uncleanItemList = await this.fetchCall(url)
-
-
-
-
-    const itemList = await this.cleanItemList(page, uncleanItemList)
+    const uncleanItemList = await fetchCall(url)
+    const itemList = await cleanItemList(page, uncleanItemList)
     return itemList
   }
 
-  cleanItemList = async (page, uncleanItemList) => {
+  export const cleanItemList = async (page, uncleanItemList) => {
     let cleanList;
     switch(page) {
       case('people') :
-        cleanList = await this.cleanPeople(uncleanItemList.results);
+        cleanList = await cleanPeople(uncleanItemList.results);
         return cleanList;
       case('vehicles') :
         console.log('vehicles:', page);
@@ -49,10 +44,10 @@ class SWRepository {
     return cleanList
   }
 
-  cleanPeople = (uncleanPeople) => {
+  export const cleanPeople = (uncleanPeople) => {
     const speciesPromises = uncleanPeople.map( async (person) => {
-      const species = await this.fetchCall(...person.species);
-      const homeworld = await this.fetchCall(person.homeworld);
+      const species = await fetchCall(...person.species);
+      const homeworld = await fetchCall(person.homeworld);
 
       return ({
         name: person.name,
@@ -65,12 +60,9 @@ class SWRepository {
   }
 
 
-  fetchCall = async (url) => {
+  export const fetchCall = async (url) => {
     const response = await fetch(url);
     const jason = await response.json();
 
     return jason
   }
-
-}
-export default SWRepository;

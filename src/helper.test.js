@@ -1,4 +1,4 @@
-import SWRepository from './helper';
+import { getMovieText, randomNumber, cleanMovieText, getItemList, cleanItemList, cleanPeople, fetchCall } from './helper.js';
 
 describe('SWRepository', () => {
   describe('getMovieText', () => {
@@ -12,19 +12,20 @@ describe('SWRepository', () => {
 
         { title: 'A Tale of Two Cities', date: 'January 1 2000', opening: 'It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we', somethingElse: 'info that will be taken out of this object'}
       ]
-      mockcleanMovieText() = jest.fn()
+      mockcleanMovieText = jest.fn()
 
-      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({ json: () => Promise.resolve()
-      }))
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({ ok: true, json: () => Promise.resolve(mockuncleanMovies)}))
 
     })
 
     it('should call fetch with the correct parameters', async () => {
       //set-up
-
+      const expected = 
+        'https://swapi.co/api/films/';
       //execution
-
+      await getMovieText()
       //expectation
+      expect(window.fetch).toHaveBeenCalledWith(expected)
     })
 
     it('should retrieve movie information if status is ok', async () => {
