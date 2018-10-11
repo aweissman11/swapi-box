@@ -1,8 +1,4 @@
 class SWRepository {
-  constructor() {
-
-  }
-
   randomNumber = () => {
     const rndm = Math.floor(Math.random() * Math.floor(6))
     return rndm
@@ -29,15 +25,55 @@ class SWRepository {
 
     const response = await fetch(url);
     const uncleanItemList = await response.json();
-    const cards = await this.cleanItemList(page, uncleanItemList)
 
-    return uncleanItemList
+
+
+
+    const itemList = await this.cleanItemList(page, uncleanItemList)
+    return itemList
   }
 
-  cleanItemList = (page, uncleanItemList) => {
-    // switch(page)
-    console.log(uncleanItemList)
-    return uncleanItemList
+  cleanItemList = async (page, uncleanItemList) => {
+    let cleanList;
+    switch(page) {
+      case('people') :
+        cleanList = await this.cleanPeople(uncleanItemList.results);
+        return cleanList;
+      case('vehicles') :
+        console.log('vehicles:', page);
+        break;
+      case('planets') :
+        console.log('planets:', page);
+        break;
+    }
+    return cleanList
+  }
+
+  cleanPeople = (uncleanPeople) => {
+    const speciesPromises = uncleanPeople.map( async (person) => {
+      const response = await fetch(...person.species);
+      // const worldResponse = await fetch(...person.homeworld);
+      const species = await response.json();
+
+      return ({
+        name: person.name,
+        species: species.name,
+        homeworld: person.homeworld,
+        popHome: 'Home Population'
+      })
+    })
+
+    // const worldPromises = worldStart.map( async (person) => {
+      // const response = await fetch(...person.homeworld);
+      // const homeworld = await response.json();
+    //   return ({
+    //     ...person,
+    //     homeworld: homeworld.name,
+    //     popHome: homeworld.population
+    //   })
+    // })
+
+    return Promise.all(speciesPromises)
   }
 
 }

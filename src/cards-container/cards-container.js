@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 import './cards-container.css';
 
 class CardsContainer extends Component {
-  constructor(props) {
-    super(props)
-  }
+  // constructor(props) {
+  //   super(props)
+  // }
 
   render() {
     return(

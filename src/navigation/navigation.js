@@ -9,13 +9,13 @@ class Navigation extends Component {
     // const themeSong = new Audio('./theme-song.mp3')
     return (
       <div className='navigation'>
-        <nav>
-          <a onClick={() => changePage('scroll')}>Home</a>
-          <a onClick={() => changePage('people')}>People</a>
-          <a onClick={() => changePage('planets')}>Planets</a>
-          <a onClick={() => changePage('vehicles')}>Vehicles</a>
-          <a onClick={() => changePage('favorites')}>Favorites</a>
-        </nav>
+        <ul>
+          <li onClick={() => changePage('scroll')}>Home</li>
+          <li onClick={() => changePage('people')}>People</li>
+          <li onClick={() => changePage('planets')}>Planets</li>
+          <li onClick={() => changePage('vehicles')}>Vehicles</li>
+          <li onClick={() => changePage('favorites')}>Favorites</li>
+        </ul>
       </div>
     )
   }

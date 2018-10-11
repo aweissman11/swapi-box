@@ -21,9 +21,9 @@ class App extends Component {
   }
 
   changePage = async (currentPage) => {
-
     const pageRepo = await this.state.fetchMethods.getItemList(currentPage);
 
+    console.log('pageRepo:', pageRepo)
 
     this.setState({
       currentPage,
