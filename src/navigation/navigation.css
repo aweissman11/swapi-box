@@ -18,22 +18,30 @@
   justify-content: space-around;
 }
 
-.navigation li {
-  background-color: rgba(229, 197, 67, .7);
+.current-nav-btn,
+.nav-btn {
   border-radius: 20px;
   height: 40px;
   line-height: 40px;
   width: 100px;
 }
 
-.navigation li:hover {
+.nav-btn {
+  background-color: rgba(229, 197, 67, .7);
+}
+
+.nav-btn:hover {
   transform: scale(1.05);
   border-color: #ffc600;
   box-shadow: 0 0 1rem #ffc600;
 }
 
-.navigation li:active {
+.nav-btn:active {
   transform: scale(.95);
   border-color: #fff;
   box-shadow: 0 0 1rem #fff;
+}
+
+.current-nav-btn {
+  border: .5px solid rgba(229, 197, 67, .7);
 }

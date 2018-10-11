@@ -5,16 +5,35 @@ import './navigation.css';
 class Navigation extends Component {
 
   render() {
-    const { changePage } = this.props
+    const { changePage, pages, currentPage } = this.props
     // const themeSong = new Audio('./theme-song.mp3')
     return (
       <div className='navigation'>
         <ul>
-          <li onClick={() => changePage('scroll')}>Home</li>
-          <li onClick={() => changePage('people')}>People</li>
-          <li onClick={() => changePage('planets')}>Planets</li>
-          <li onClick={() => changePage('vehicles')}>Vehicles</li>
-          <li onClick={() => changePage('favorites')}>Favorites</li>
+          {
+            pages.map( page => {
+              if (page.toLowerCase() === currentPage) {
+                return (
+                  <li
+                    onClick={() => changePage(page.toLowerCase())}
+                    className='current-nav-btn'
+                  >
+                    {page}
+                  </li>
+                )
+              } else {
+                return (
+                  <li
+                    onClick={() => changePage(page.toLowerCase())}
+                    className='nav-btn'
+                  >
+                    {page}
+                  </li>
+                )
+              }
+            })
+          }
+
         </ul>
       </div>
     )
@@ -22,6 +41,12 @@ class Navigation extends Component {
 }
 
 export default Navigation;
+
+          // <li onClick={() => changePage('scroll')}>Home</li>
+          // <li onClick={() => changePage('people')}>People</li>
+          // <li onClick={() => changePage('planets')}>Planets</li>
+          // <li onClick={() => changePage('vehicles')}>Vehicles</li>
+          // <li onClick={() => changePage('favorites')}>Favorites</li>
         // <div className='audio-controls'>
         //   <p>
         //     <audio 
