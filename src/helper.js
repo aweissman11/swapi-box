@@ -13,7 +13,6 @@
   }
 
   export const cleanMovieText = (uncleanMovies) => {
-    console.log(uncleanMovies);
      const cleanMovies = uncleanMovies.map(movie => {
     return ({title: movie.title, date: movie.release_date, opening: movie.opening_crawl})
     });

@@ -5,7 +5,7 @@ import CardsContainer from '../cards-container/cards-container';
 import Navigation from '../navigation/navigation';
 import './App.css';
 
-import { getMovieText, randomNumber, cleanMovieText, getItemList, cleanItemList, cleanPeople, fetchCall } from '../helper.js';
+import { getMovieText, getItemList } from '../helper.js';
 
 class App extends Component {
   constructor() {
@@ -44,8 +44,8 @@ class App extends Component {
             movie={movie}
           /> : 
           <CardsContainer
-            fetchMethods={fetchMethods} 
             currentPage={currentPage}
+            getItemList={getItemList}
           />
         }
       </div>
