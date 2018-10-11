@@ -10,29 +10,29 @@
   flex-wrap: wrap;
 }
 
-.navigation nav {
+.navigation ul {
   width: 80%;
   margin: auto;
   display: flex;
+  list-style: none;
   justify-content: space-around;
 }
 
-.navigation a {
+.navigation li {
   background-color: rgba(229, 197, 67, .7);
   border-radius: 20px;
   height: 40px;
   line-height: 40px;
-
   width: 100px;
 }
 
-.navigation a:hover {
+.navigation li:hover {
   transform: scale(1.05);
   border-color: #ffc600;
   box-shadow: 0 0 1rem #ffc600;
 }
 
-.navigation a:active {
+.navigation li:active {
   transform: scale(.95);
   border-color: #fff;
   box-shadow: 0 0 1rem #fff;

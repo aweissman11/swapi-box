@@ -15,11 +15,21 @@ class App extends Component {
       movie: {},
       people: [],
       vehicles: [],
-      currentPage: 'scroll'
+      currentPage: 'scroll',
+      pageRepo: []
     }
   }
 
-  changePage = (page) => this.setState({currentPage: page})
+  changePage = async (currentPage) => {
+    const pageRepo = await this.state.fetchMethods.getItemList(currentPage);
+
+    console.log('pageRepo:', pageRepo)
+
+    this.setState({
+      currentPage,
+      pageRepo
+    })
+  }
 
   async componentDidMount() {
     const movie = await this.state.fetchMethods.getMovieText();
