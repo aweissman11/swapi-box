@@ -20,14 +20,21 @@ class App extends Component {
     }
   }
 
-  changePage = async (currentPage) => {
-    const pageRepo = await this.state.fetchMethods.getItemList(currentPage);
+  // Old changePage method. 
+  // changePage = async (currentPage) => {
+  //   const pageRepo = await this.state.fetchMethods.getItemList(currentPage);
 
-    console.log('pageRepo:', pageRepo)
+  //   console.log('pageRepo:', pageRepo)
 
+  //   this.setState({
+  //     currentPage,
+  //     pageRepo
+  //   })
+  // }
+
+  changePage = (currentPage) => {
     this.setState({
-      currentPage,
-      pageRepo
+      currentPage
     })
   }
 
@@ -37,7 +44,7 @@ class App extends Component {
   }
 
   render() {
-    const { currentPage, movie } = this.state
+    const { currentPage, movie, fetchMethods } = this.state
 
     return (
       <div className="App">
@@ -49,7 +56,8 @@ class App extends Component {
           <ScrollSection 
             movie={movie}
           /> : 
-          <CardsContainer 
+          <CardsContainer
+            fetchMethods={fetchMethods} 
             currentPage={currentPage}
           />
         }
