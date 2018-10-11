@@ -3,11 +3,11 @@ import { getMovieText, randomNumber, cleanMovieText, getItemList, cleanItemList,
 describe('helper.js', () => {
   describe('fetchCall', () => {
     let mockcleanMovieText
-    let movieObject
+    let mockmovieObject
     let mockURL
 
     beforeEach(() => {
-      movieObject = { results: [
+      mockmovieObject = { results: [
         { title: 'StarTrek', date: 'December 31 1999', opening: 'Space: the final frontier.  These are the voyages of the starship Enterprise.  Its five-year mission: to explore strange new worlds. To seek out new life and new civilizations.  To boldly go where no man has gone before!', somethingElse: 'info that will later be removed from this object'},
 
         { title: 'A Tale of Two Cities', date: 'January 1 2000', opening: 'It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we', somethingElse: 'info that will be taken out of this object'}
@@ -16,7 +16,7 @@ describe('helper.js', () => {
 
       mockURL = 'https://swapi.co/api/films/'
 
-      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({ ok: true, json: () => Promise.resolve(movieObject)}))
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({ ok: true, json: () => Promise.resolve(mockmovieObject)}))
 
     })
 
@@ -32,7 +32,7 @@ describe('helper.js', () => {
 
     it('should retrieve movie information if status is ok', async () => {
       //set-up
-      const expected = movieObject
+      const expected = mockmovieObject
       //execution
       const result = await fetchCall(mockURL)
       //expectation
@@ -41,11 +41,10 @@ describe('helper.js', () => {
 
     it('should throw an error if status is not okay', async () => {
       //set-up
-
-      //execution
-
-      //expectation
-
+      const expected = Error('Status is not okay')
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({ok: false, json: () => Promise.resolve(mockmovieObject)}))
+      //execution && expectation
+      await expect(fetchCall(mockURL)).rejects.toEqual(expected)
     })
 
   })

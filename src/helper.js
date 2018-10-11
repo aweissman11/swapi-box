@@ -1,7 +1,11 @@
   export const fetchCall = async (url) => {
-    const response = await fetch(url);
-    const responseToJSON = await response.json();
-    return responseToJSON
+      const response = await fetch(url);
+    if (response.ok) {
+      const responseToJSON = await response.json();
+      return responseToJSON
+    } else {
+      throw new Error('Status is not okay')
+   }
   }
 
   export const randomNumber = () => {
