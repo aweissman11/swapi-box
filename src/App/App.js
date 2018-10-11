@@ -5,13 +5,12 @@ import CardsContainer from '../cards-container/cards-container';
 import Navigation from '../navigation/navigation';
 import './App.css';
 
-import SWRepository from '../helper.js'
+import { getMovieText, randomNumber, cleanMovieText, getItemList, cleanItemList, cleanPeople, fetchCall } from '../helper.js';
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
-      fetchMethods: new SWRepository(),
       movie: {},
       people: [],
       vehicles: [],
@@ -20,18 +19,6 @@ class App extends Component {
     }
   }
 
-  // Old changePage method. 
-  // changePage = async (currentPage) => {
-  //   const pageRepo = await this.state.fetchMethods.getItemList(currentPage);
-
-  //   console.log('pageRepo:', pageRepo)
-
-  //   this.setState({
-  //     currentPage,
-  //     pageRepo
-  //   })
-  // }
-
   changePage = (currentPage) => {
     this.setState({
       currentPage
@@ -39,7 +26,7 @@ class App extends Component {
   }
 
   async componentDidMount() {
-    const movie = await this.state.fetchMethods.getMovieText();
+    const movie = await getMovieText();
     this.setState({ movie })
   }
 
