@@ -5,6 +5,7 @@
 .cards-container {
   background-image: url('../scroll-section/stars.jpg');
   color: white;
+  min-height: 100vh;
   height: 100%;
 }
 

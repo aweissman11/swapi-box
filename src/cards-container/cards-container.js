@@ -35,8 +35,14 @@ class CardsContainer extends Component {
       <div>
     {
       (pageRepo.length < 1) ?
-          <div>
-            <h1> No Repo </h1>
+          <div className='cards-container'>
+            <div className='container'>
+              <div>
+                <div className='cards'>
+                  <h1> Repo Loading... </h1>
+                </div>
+              </div> 
+            </div>
           </div> : 
           <div className='cards-container'>
             <div className='container'>
