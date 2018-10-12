@@ -1,5 +1,13 @@
+  export const fetchCall = async (url) => {
+      const response = await fetch(url);
+    if (response.ok) {
+      const responseToJSON = await response.json();
+      return responseToJSON
+    } else {
+      throw new Error('Status is not okay')
+   }
+  }
 
-  
   export const randomNumber = () => {
     const rndm = Math.floor(Math.random() * Math.floor(6))
     return rndm
@@ -58,10 +66,3 @@
     return Promise.all(speciesPromises)
   }
 
-  export const fetchCall = async (url) => {
-
-    const response = await fetch(url);
-    const jason = await response.json();
-
-    return jason
-  }
