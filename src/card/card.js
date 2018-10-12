@@ -5,9 +5,15 @@ const Card = (props) => {
     <div className='card' >
       {
         Object.keys(props.stats).map( (stat, i) => {
-          return (
-            <p>{stat.toUpperCase()}: {props.stats[stat]}</p>
-          )
+          if (stat === 'Name') {
+            return (
+              <h4>{props.stats[stat].toUpperCase()}</h4>
+            )
+          } else {
+            return (
+              <p>{stat}: {props.stats[stat]}</p>
+            )
+          }
         })
       }
     </div>

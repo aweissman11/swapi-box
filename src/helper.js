@@ -57,10 +57,10 @@
       const homeworld = await fetchCall(person.homeworld);
 
       return ({
-        name: person.name,
-        species: species.name,
-        homeworld: homeworld.name,
-        popHome: homeworld.population
+        Name: person.name,
+        Species: species.name,
+        Homeworld: homeworld.name,
+        Population: homeworld.population
       })
     })
     return Promise.all(speciesPromises)

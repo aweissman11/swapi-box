@@ -112,7 +112,7 @@ describe('helper.js', () => {
       expect(cleanList.length).toEqual(expected)
     })
 
-    it('should remove unnecessary information from the movies', () => {
+    it('should remove unnecessary information from the item list', () => {
       //set-up
       //execution
       //expectation
