@@ -30,10 +30,9 @@ class CardsContainer extends Component {
         this.setState({ pageRepo })
         break;
       case('favorites') :
-        pageRepo = [{Name: 'favorites'}]
+        pageRepo = JSON.parse(localStorage.getItem('favorites'))
         this.setState({ pageRepo })
         break;
-
     }
   }
 
@@ -53,6 +52,10 @@ class CardsContainer extends Component {
           break;
         case('vehicles') :
           pageRepo = [{Name: 'vehicles'}]
+          this.setState({ pageRepo })
+          break;
+        case('favorites') :
+          pageRepo = JSON.parse(localStorage.getItem('favorites'))
           this.setState({ pageRepo })
           break;
       }

@@ -35,8 +35,18 @@ class App extends Component {
   }
 
   handleFavorites = (stats) => {
-    const storageStats = JSON.stringify(stats);
-    localStorage.setItem(stats.Name, storageStats)
+
+    if (localStorage.getItem('favorites')) {
+      const jStored = localStorage.getItem('favorites')
+      let stored = JSON.parse(jStored)
+      stored.push(stats)
+      localStorage.setItem('favorites', JSON.stringify(stored));
+    } else {
+      const storageStats = JSON.stringify([stats]);
+      localStorage.setItem('favorites', storageStats)
+    }
+
+
   }
 
   render() {
