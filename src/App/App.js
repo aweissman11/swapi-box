@@ -27,12 +27,16 @@ class App extends Component {
       const movie = await getMovieText();
       this.setState({ movie }) 
     }
-
   }
 
   async componentDidMount() {
     const movie = await getMovieText();
     this.setState({ movie })
+  }
+
+  handleFavorites = (stats) => {
+    const storageStats = JSON.stringify(stats);
+    localStorage.setItem(stats.Name, storageStats)
   }
 
   render() {
@@ -53,6 +57,7 @@ class App extends Component {
           <CardsContainer
             currentPage={currentPage}
             getItemList={getItemList}
+            handleFavorites={this.handleFavorites}
           />
         }
       </div>
