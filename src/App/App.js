@@ -40,10 +40,8 @@ class App extends Component {
       const jStored = localStorage.getItem('favorites')
       let stored = JSON.parse(jStored)
       if (!stored.find( item => item.Name === stats.Name)) {
-        console.log('find')
         stored.push(stats)
       } else {
-        console.log('filter')
         stored = stored.filter( item => item.Name !== stats.Name)
       }
       localStorage.setItem('favorites', JSON.stringify(stored));
