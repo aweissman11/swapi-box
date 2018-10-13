@@ -3,6 +3,8 @@ import React from 'react';
 import './card.css';
 
 const Card = (props) => {
+  let allFavorites = JSON.parse(localStorage.getItem('favorites'));
+  let isFavorited = (allFavorites.find( favorite => favorite.Name === props.stats.Name)) 
   return (
     <div className='card' >
       {
@@ -22,8 +24,11 @@ const Card = (props) => {
       className='favorite'
       onClick={() => props.handleFavorites(props.stats)}
     >
-      <span className='star'>☆</span>
-      <span className='star'>★</span>
+      {
+        (isFavorited) ?
+        <span className='star'>☆</span> :
+        <span className='star'>★</span>
+      }
       Favorite</button>
     </div>
   )
