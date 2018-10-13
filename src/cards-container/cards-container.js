@@ -19,12 +19,43 @@ class CardsContainer extends Component {
     switch(currentPage) {
       case('people') :
         pageRepo = await getItemList(currentPage)
+        this.setState({ pageRepo })
+        break;
       case('planets') :
         pageRepo = await getItemList(currentPage)
+        this.setState({ pageRepo })
+        break;
+      case('vehicles') :
+        pageRepo = [{Name: 'vehicles'}]
+        this.setState({ pageRepo })
+        break;
 
     }
 
-    this.setState({ pageRepo })
+    // this.setState({ pageRepo })
+  }
+
+  async componentDidUpdate(prevProps) {
+    const { getItemList, currentPage } = this.props
+    let pageRepo;
+        console.log(currentPage)
+
+    if (currentPage !== prevProps.currentPage) {
+      switch(currentPage) {
+        case('people') :
+          pageRepo = await getItemList(currentPage)
+          this.setState({ pageRepo })
+          break;
+        case('planets') :
+          pageRepo = await getItemList(currentPage)
+          this.setState({ pageRepo })
+          break;
+        case('vehicles') :
+          pageRepo = [{Name: 'vehicles'}]
+          this.setState({ pageRepo })
+          break;
+      }
+    }
   }
 
   listCards = () => {
