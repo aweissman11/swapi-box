@@ -1,4 +1,4 @@
-import { getMovieText, randomNumber, cleanMovieText, getItemList, cleanItemList, cleanPeople, fetchCall } from './helper.js';
+import { getMovieText, randomNumber, cleanMovieText, getItemList, cleanItemList, cleanPeople, fetchCall, cleanVehicles } from './helper.js';
 
 describe('helper.js', () => {
   describe('fetchCall', () => {
@@ -112,7 +112,7 @@ describe('helper.js', () => {
       expect(cleanList.length).toEqual(expected)
     })
 
-    it('should remove unnecessary information from the item list', () => {
+    it('should remove unne++cessary information from the item list', () => {
       //Test that the functions inside have been run a certain number of times.
 
       //set-up

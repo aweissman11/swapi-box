@@ -41,18 +41,18 @@ class App extends Component {
     return (
       <div className="App">
         <Navigation
-          changePage={this.changePage}
-          currentPage={currentPage}
-          pages={pages}
+          changePage={ this.changePage }
+          currentPage={ currentPage }
+          pages={ pages }
         />
         {
           (currentPage === 'home') ? 
           <ScrollSection 
-            movie={movie}
+            movie={ movie }
           /> : 
           <CardsContainer
-            currentPage={currentPage}
-            getItemList={getItemList}
+            currentPage={ currentPage }
+            getItemList={ getItemList }
           />
         }
       </div>

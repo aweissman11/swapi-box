@@ -26,7 +26,7 @@ class CardsContainer extends Component {
         this.setState({ pageRepo })
         break;
       case('vehicles') :
-        pageRepo = [{Name: 'vehicles'}]
+        pageRepo = await getItemList(currentPage)
         this.setState({ pageRepo })
         break;
 
@@ -51,7 +51,8 @@ class CardsContainer extends Component {
           this.setState({ pageRepo })
           break;
         case('vehicles') :
-          pageRepo = [{Name: 'vehicles'}]
+          pageRepo = await getItemList(
+            currentPage)
           this.setState({ pageRepo })
           break;
       }
