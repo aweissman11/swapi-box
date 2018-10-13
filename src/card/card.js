@@ -18,7 +18,10 @@ const Card = (props) => {
           }
         })
       }
-    <button className='favorite'>
+    <button 
+      className='favorite'
+      onClick={() => props.handleFavorites(props.stats)}
+    >
       <span className='star'>☆</span>
       <span className='star'>★</span>
       Favorite</button>
