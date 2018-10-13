@@ -29,16 +29,16 @@ class CardsContainer extends Component {
         pageRepo = await getItemList(currentPage)
         this.setState({ pageRepo })
         break;
-
+      case('favorites') :
+        pageRepo = JSON.parse(localStorage.getItem('favorites'))
+        this.setState({ pageRepo })
+        break;
     }
-
-    // this.setState({ pageRepo })
   }
 
   async componentDidUpdate(prevProps) {
     const { getItemList, currentPage } = this.props
     let pageRepo;
-        console.log(currentPage)
 
     if (currentPage !== prevProps.currentPage) {
       switch(currentPage) {
@@ -55,12 +55,21 @@ class CardsContainer extends Component {
             currentPage)
           this.setState({ pageRepo })
           break;
+        case('favorites') :
+          pageRepo = JSON.parse(localStorage.getItem('favorites'))
+          this.setState({ pageRepo })
+          break;
       }
     }
   }
 
   listCards = () => {
-    return this.state.pageRepo.map( stats => <Card stats={stats} />)
+    return this.state.pageRepo.map( stats => (
+      <Card
+        stats={stats}
+        handleFavorites={this.props.handleFavorites}
+      />
+    ))
   }
 
   render() {
