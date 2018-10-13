@@ -32,7 +32,7 @@
     const url = `https://swapi.co/api/${fetchInfo}`
     const uncleanItemList = await fetchCall(url)
     const itemList = await cleanItemList(page, uncleanItemList)
-    return itemList
+    return itemList;
   }
 
   export const cleanItemList = async (page, uncleanItemList) => {
@@ -42,13 +42,39 @@
         cleanList = await cleanPeople(uncleanItemList.results);
         return cleanList;
       case('vehicles') :
+        //Sara is doing this one
         console.log('vehicles:', page);
         break;
       case('planets') :
-        console.log('planets:', page);
-        break;
+        cleanList = await cleanPlanets(uncleanItemList.results)
+        return cleanList;
     }
-    return cleanList
+    return cleanList;
+  }
+
+  export const cleanPlanets = (uncleanPlanets) => {
+    const unresolvedPromises = uncleanPlanets.map( async (planet) => {
+      const residents = await getResidents(planet.residents)
+
+      return ({
+        Name: planet.name,
+        Terrain: planet.terrain,
+        Population: planet.population,
+        Climate: planet.climate,
+        Residents: residents
+      })
+    })
+
+    return Promise.all(unresolvedPromises)
+  }
+
+  export const getResidents = async (residents) => {
+    const unresolvedPromises = residents.map( async (resident) => {
+      const person = await fetchCall(resident)
+      return person.name;
+    })
+
+    return Promise.all(unresolvedPromises)
   }
 
   export const cleanPeople = (uncleanPeople) => {
@@ -57,10 +83,10 @@
       const homeworld = await fetchCall(person.homeworld);
 
       return ({
-        name: person.name,
-        species: species.name,
-        homeworld: homeworld.name,
-        popHome: homeworld.population
+        Name: person.name,
+        Species: species.name,
+        Homeworld: homeworld.name,
+        Population: homeworld.population
       })
     })
     return Promise.all(speciesPromises)

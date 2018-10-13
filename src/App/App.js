@@ -18,10 +18,16 @@ class App extends Component {
     }
   }
 
-  changePage = (currentPage) => {
+  changePage = async (currentPage) => {
     this.setState({
       currentPage
     })
+
+    if (currentPage === 'home') {
+      const movie = await getMovieText();
+      this.setState({ movie }) 
+    }
+
   }
 
   async componentDidMount() {
