@@ -113,6 +113,8 @@ describe('helper.js', () => {
     })
 
     it('should remove unnecessary information from the item list', () => {
+      //Test that the functions inside have been run a certain number of times.
+
       //set-up
       //execution
       //expectation

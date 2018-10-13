@@ -1,0 +1,30 @@
+.card {
+  background-color: rgba(229, 197, 67, .7);
+  border-radius: 20px;
+}
+
+.name {
+  color: black;
+  font-size: 1.3em;
+  margin: 10px auto;
+}
+
+.stat {
+  margin: 5px auto;
+}
+
+.favorite {
+  background-color: yellow;
+  border-radius: 20px;
+  font-size: 1.3em;
+  margin: 10px auto;
+  filter: drop-shadow(6px 6px 6px black);
+}
+
+.favorite:hover {
+  background-color: gray;
+}
+
+.favorite:active {
+  filter: drop-shadow(0 0 0);
+}

@@ -14,10 +14,12 @@ class CardsContainer extends Component {
 
   async componentDidMount() {
     const { getItemList, currentPage } = this.props
-    let pageRepo
+    let pageRepo;
 
     switch(currentPage) {
       case('people') :
+        pageRepo = await getItemList(currentPage)
+      case('planets') :
         pageRepo = await getItemList(currentPage)
 
     }
