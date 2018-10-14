@@ -52,7 +52,7 @@ class App extends Component {
   }
 
   render() {
-    const { currentPage, movie, fetchMethods, pages } = this.state;
+    const { currentPage, movie, pages } = this.state;
 
     return (
       <div className="App">
