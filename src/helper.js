@@ -42,14 +42,25 @@
         cleanList = await cleanPeople(uncleanItemList.results);
         return cleanList;
       case('vehicles') :
-        //Sara is doing this one
-        console.log('vehicles:', page);
-        break;
+        cleanList = await cleanVehicles(uncleanItemList.results);
+        return cleanList;
       case('planets') :
         cleanList = await cleanPlanets(uncleanItemList.results)
         return cleanList;
     }
     return cleanList;
+  }
+
+  export const cleanVehicles = (uncleanVehicles) => {
+    const unresolvedPromises = uncleanVehicles.map( async (vehicle) => {
+      return ({
+        Name: vehicle.name,
+        Model: vehicle.model,
+        Class: vehicle.class,
+        NumPassengers: vehicle.passengers
+      })
+    })
+    return Promise.all(unresolvedPromises)
   }
 
   export const cleanPlanets = (uncleanPlanets) => {
