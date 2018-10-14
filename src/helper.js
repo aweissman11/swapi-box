@@ -66,7 +66,7 @@ export const cleanVehicles = (uncleanVehicles) => {
 export const cleanPlanets = (uncleanPlanets) => {
   const unresolvedPromises = uncleanPlanets.map( async (planet) => {
     const residents = await getResidents(planet.residents);
-
+    
     return ({
       Name: planet.name,
       Terrain: planet.terrain,
@@ -75,7 +75,7 @@ export const cleanPlanets = (uncleanPlanets) => {
       Residents: residents
     });
   });
-
+  
   return Promise.all(unresolvedPromises);
 };
 
@@ -84,22 +84,38 @@ export const getResidents = async (residents) => {
     const person = await fetchCall(resident);
     return person.name;
   });
-
+  
   return Promise.all(unresolvedPromises);
 };
 
-export const cleanPeople = (uncleanPeople) => {
+export const cleanPeople = async (uncleanPeople) => {
+  const withSpecies = await getSpecies(uncleanPeople);
+  const withWorlds = getWorlds(withSpecies);
+  return withWorlds;
+};
+
+export const getSpecies = (uncleanPeople) => {
   const speciesPromises = uncleanPeople.map( async (person) => {
     const species = await fetchCall(...person.species);
-    const homeworld = await fetchCall(person.homeworld);
-
+  
     return ({
-      Name: person.name,
-      Species: species.name,
-      Homeworld: homeworld.name,
-      Population: homeworld.population
+      ...person,
+      Species: species.name
     });
   });
   return Promise.all(speciesPromises);
 };
 
+export const getWorlds = (withSpecies) => {
+  const worldPromises = withSpecies.map( async (person) => {
+    const homeworld = await fetchCall(person.homeworld);
+  
+    return ({
+      Name: person.name,
+      Species: person.Species,
+      Homeworld: homeworld.name,
+      Population: homeworld.population
+    });
+  });
+  return Promise.all(worldPromises);
+};
