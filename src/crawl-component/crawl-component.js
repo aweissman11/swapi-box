@@ -1,6 +1,7 @@
 import React from 'react';
 import Crawl from 'react-star-wars-crawl';
 import 'react-star-wars-crawl/lib/index.css';
+import PropTypes from 'prop-types';
 
 const MyCrawlComponent = (props) => (
     <Crawl
@@ -16,5 +17,9 @@ const MyCrawlComponent = (props) => (
     >
     </Crawl>
 )
+
+MyCrawlComponent.propTypes = {
+  movie: PropTypes.object.isRequired
+}
 
 export default MyCrawlComponent
