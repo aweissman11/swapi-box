@@ -47,8 +47,10 @@ export const cleanItemList = async (page, uncleanItemList) => {
     case ('planets') :
       cleanList = await cleanPlanets(uncleanItemList.results);
       return cleanList;
+    default:
+      cleanList = uncleanItemList;
+      return cleanList;
   }
-  return cleanList;
 };
 
 export const cleanVehicles = (uncleanVehicles) => {
