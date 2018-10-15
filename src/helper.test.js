@@ -106,16 +106,9 @@ describe('helper.js', () => {
     });
     it('should call the right function depending on the page', async () => {
       
-      let cleanPeople = jest.fn(mockUncleanItemList.results);
-      //send in different parameters
-      //check to see that the right cleaner was called once
-      //and that the other cleaners have not been called
-
-      // console.log('cleanPeople:', cleanPeople);
-
-      let testVar = await cleanItemList('people', mockUncleanItemList);
+      let testVar = await cleanItemList('people', mockUncleanItemList.results);
       // console.log('tesatVar:', testVar);
-      expect(cleanPeople).toHaveBeenCalled(mockUncleanItemList.results);
+      expect(cleanPeople).toHaveBeenCalled();
     });
 
     it('should pass in the uncleanItemList.results to the cleaner', () => {
