@@ -30,9 +30,14 @@ class CardsContainer extends Component {
         this.setState({ pageRepo });
         break;
       case ('favorites') :
-        pageRepo = JSON.parse(localStorage.getItem('favorites'));
-        this.setState({ pageRepo });
-        break;
+        if (localStorage.getItem('favorites')) {
+          pageRepo = JSON.parse(localStorage.getItem('favorites'));
+          this.setState({ pageRepo });
+          break;
+        } else {
+          this.setState({ pageRepo: [] });
+          break;
+        }
       default:
         console.log(`Somehow, you've managed to escape`);
     }
@@ -58,9 +63,14 @@ class CardsContainer extends Component {
           this.setState({ pageRepo });
           break;
         case ('favorites') :
-          pageRepo = JSON.parse(localStorage.getItem('favorites'));
-          this.setState({ pageRepo });
-          break;
+          if (localStorage.getItem('favorites')) {
+            pageRepo = JSON.parse(localStorage.getItem('favorites'));
+            this.setState({ pageRepo });
+            break;
+          } else {
+            this.setState({ pageRepo: [] });
+            break;
+          }
         default:
           console.log(`Somehow, you've managed to escape`);
       }
@@ -87,7 +97,11 @@ class CardsContainer extends Component {
               <div className='container'>
                 <div>
                   <div className='cards'>
-                    <h1> Repo Loading... </h1>
+                    {
+                      (this.props.currentPage === 'favorites') ?
+                        <h1>You haven't favorited anything yet</h1> :
+                        <h1> Repo Loading... </h1>
+                    }
                   </div>
                 </div> 
               </div>
@@ -107,12 +121,12 @@ class CardsContainer extends Component {
       </div>
     );
   }
-};
+}
 
 CardsContainer.propTypes = {
   getItemList: PropTypes.func.isRequired,
   currentPage: PropTypes.string.isRequired,
   handleFavorites: PropTypes.func.isRequired
-}
+};
 
 export default CardsContainer;

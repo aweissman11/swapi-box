@@ -64,7 +64,7 @@ class Card extends Component {
 }
 
 Card.propTypes = {
-  stats: PropTypes.array.isRequired,
+  stats: PropTypes.object.isRequired,
   handleFavorites: PropTypes.func.isRequired
 };
 
