@@ -11,6 +11,8 @@
 
 .container {
   padding-top: 120px;
+  background-image: linear-gradient(0deg, transparent, black 75%);
+  min-height: 60vh;
 }
 
 .cards {
