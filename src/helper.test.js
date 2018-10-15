@@ -91,24 +91,40 @@ describe('helper.js', () => {
   });
   describe('cleanItemList', () => {
     let mockUncleanItemList;
-    let mockPage;
-    let cleanList;
-      
+    let mockCleanItemList;
+
     beforeEach(() => {
         
       window.fetch = jest.fn().mockImplementation(() => Promise.resolve({ok: true, json: () => Promise.resolve(mockUncleanItemList)}));
         
       mockUncleanItemList = {results: [
-        { name: 'bob', species: 'human', homeworld: 'Earth', popHome: '500', somethingElse: 'info that will later be removed from this object'},
+        { name: 'bob', species: 'human', homeworld: 'Earth', popHome: '500', somethingElse: 'info that will later be removed from this object', residents: []},
 
-        { name: 'bill', species: 'droid', homeworld: 'saturn', popHome: '1500', somethingElse: 'info that will later be removed from this object'}
+        { name: 'bill', species: 'droid', homeworld: 'saturn', popHome: '1500', somethingElse: 'info that will later be removed from this object', residents: []}
       ]};
+      mockCleanItemList = [
+        { name: 'bob', species: 'human', homeworld: 'Earth', popHome: '500'},
+
+        { name: 'bill', species: 'droid', homeworld: 'saturn', popHome: '1500'}
+      ];
     });
-    it('should call the right function depending on the page', async () => {
-      
-      let testVar = await cleanItemList('people', mockUncleanItemList.results);
-      // console.log('tesatVar:', testVar);
-      expect(cleanPeople).toHaveBeenCalled();
+
+    it('should call the right function depending on the page-- people', async () => {
+      const expected = Object.keys(mockCleanItemList);
+      let cleanItem = await cleanItemList('people', mockUncleanItemList)
+      expect(Object.keys(cleanItem)).toEqual(expected)
+    });
+
+    it('should call the right function depending on the page-- vehicles', async () => {
+      const expected = ['Name', 'Model', 'Class', 'NumPassengers'];
+      let cleanItem = await cleanItemList('vehicles', mockUncleanItemList)
+      expect(Object.keys(cleanItem[0])).toEqual(expected)
+    });
+
+    it('should call the right function depending on the page-- planets', async () => {
+      const expected = ['Name', 'Terrain', 'Population', 'Climate', 'Residents'];
+      let cleanItem = await cleanItemList('planets', mockUncleanItemList)
+      expect(Object.keys(cleanItem[0])).toEqual(expected)
     });
 
     it('should pass in the uncleanItemList.results to the cleaner', () => {
@@ -134,19 +150,19 @@ describe('helper.js', () => {
     
   });
 
-  describe('randomNumber', () => {
+  // describe('randomNumber', () => {
     
-    it('should return a randomNumber between 0 and 6', () => {
-      //set-up
-      const expected = (<= 0 && >= 6);
-      //execution
-      let rndm = Math.floor(Math.random() * Math.floor(6));
-      //expectation
-      expect(rndm).toBe(expected);
-    });
+  //   it('should return a randomNumber between 0 and 6', () => {
+  //     //set-up
+  //     const expected = (<= 0 && >= 6);
+  //     //execution
+  //     let rndm = Math.floor(Math.random() * Math.floor(6));
+  //     //expectation
+  //     expect(rndm).toBe(expected);
+  //   });
       
-    });
+  //   });
       
-  });
+  // });
 
 });

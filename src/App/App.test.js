@@ -8,6 +8,6 @@ it('renders without crashing', () => {
   ReactDOM.unmountComponentAtNode(div);
 });
 
-'movies state begins as an empty array, and is set upon calling componentDidMount'
+// 'movies state begins as an empty array, and is set upon calling componentDidMount'
 
-'movies state is updated to contain an array of objects with cleaned data'
+// 'movies state is updated to contain an array of objects with cleaned data'
