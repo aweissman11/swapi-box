@@ -106,12 +106,6 @@ describe('helper.js', () => {
     });
     it('should call the right function depending on the page', async () => {
       
-      let cleanPeople = jest.fn();
-      //send in different parameters
-      //check to see that the right cleaner was called once
-      //and that the other cleaners have not been called
-      
-
       let testVar = await cleanItemList('people', mockUncleanItemList.results);
       // console.log('tesatVar:', testVar);
       expect(cleanPeople).toHaveBeenCalled();
@@ -140,6 +134,19 @@ describe('helper.js', () => {
     
   });
 
-});
+  describe('randomNumber', () => {
+    
+    it('should return a randomNumber between 0 and 6', () => {
+      //set-up
+      const expected = (<= 0 && >= 6);
+      //execution
+      let rndm = Math.floor(Math.random() * Math.floor(6));
+      //expectation
+      expect(rndm).toBe(expected);
+    });
+      
+    });
+      
+  });
 
-//NOTE TO DEV TEAM:  remember to add in proptypes to relevant components!!!!
+});
