@@ -96,7 +96,7 @@ describe('helper.js', () => {
       
     beforeEach(() => {
         
-      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({ok: false, json: () => Promise.resolve(mockUncleanItemList)}));
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({ok: true, json: () => Promise.resolve(mockUncleanItemList)}));
         
       mockUncleanItemList = {results: [
         { name: 'bob', species: 'human', homeworld: 'Earth', popHome: '500', somethingElse: 'info that will later be removed from this object'},
@@ -106,15 +106,14 @@ describe('helper.js', () => {
     });
     it('should call the right function depending on the page', async () => {
       
-      let cleanPeople = jest.fn('people', mockUncleanItemList);
+      let cleanPeople = jest.fn();
       //send in different parameters
       //check to see that the right cleaner was called once
       //and that the other cleaners have not been called
+      
 
-      console.log('cleanPeople:', cleanPeople);
-
-      let testVar = await cleanItemList('people', mockUncleanItemList);
-      console.log('tesatVar:', testVar);
+      let testVar = await cleanItemList('people', mockUncleanItemList.results);
+      // console.log('tesatVar:', testVar);
       expect(cleanPeople).toHaveBeenCalled();
     });
 
