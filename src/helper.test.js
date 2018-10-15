@@ -96,7 +96,7 @@ describe('helper.js', () => {
       
     beforeEach(() => {
         
-      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({ok: false, json: () => Promise.resolve(mockUncleanItemList)}));
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({ok: true, json: () => Promise.resolve(mockUncleanItemList)}));
         
       mockUncleanItemList = {results: [
         { name: 'bob', species: 'human', homeworld: 'Earth', popHome: '500', somethingElse: 'info that will later be removed from this object'},
@@ -106,16 +106,16 @@ describe('helper.js', () => {
     });
     it('should call the right function depending on the page', async () => {
       
-      let cleanPeople = jest.fn('people', mockUncleanItemList);
+      let cleanPeople = jest.fn(mockUncleanItemList.results);
       //send in different parameters
       //check to see that the right cleaner was called once
       //and that the other cleaners have not been called
 
-      console.log('cleanPeople:', cleanPeople);
+      // console.log('cleanPeople:', cleanPeople);
 
       let testVar = await cleanItemList('people', mockUncleanItemList);
-      console.log('tesatVar:', testVar);
-      expect(cleanPeople).toHaveBeenCalled();
+      // console.log('tesatVar:', testVar);
+      expect(cleanPeople).toHaveBeenCalled(mockUncleanItemList.results);
     });
 
     it('should pass in the uncleanItemList.results to the cleaner', () => {
@@ -141,6 +141,19 @@ describe('helper.js', () => {
     
   });
 
-});
+  describe('randomNumber', () => {
+    
+    it('should return a randomNumber between 0 and 6', () => {
+      //set-up
+      const expected = (<= 0 && >= 6);
+      //execution
+      let rndm = Math.floor(Math.random() * Math.floor(6));
+      //expectation
+      expect(rndm).toBe(expected);
+    });
+      
+    });
+      
+  });
 
-//NOTE TO DEV TEAM:  remember to add in proptypes to relevant components!!!!
+});
