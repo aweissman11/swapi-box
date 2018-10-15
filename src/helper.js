@@ -68,7 +68,6 @@ export const cleanVehicles = (uncleanVehicles) => {
 export const cleanPlanets = (uncleanPlanets) => {
   const unresolvedPromises = uncleanPlanets.map( async (planet) => {
     const residents = await getResidents(planet.residents);
-    
     return ({
       Name: planet.name,
       Terrain: planet.terrain,
@@ -82,12 +81,17 @@ export const cleanPlanets = (uncleanPlanets) => {
 };
 
 export const getResidents = async (residents) => {
-  const unresolvedPromises = residents.map( async (resident) => {
-    const person = await fetchCall(resident);
-    return person.name;
-  });
+  console.log(residents)
+  if(residents.length) {
+    const unresolvedPromises = residents.map( async (resident) => {
+      const person = await fetchCall(resident);
+      return person.name;
+    });
   
-  return Promise.all(unresolvedPromises);
+    return Promise.all(unresolvedPromises);
+  } else {
+    return Promise.resolve('Nobody lives here')
+  }
 };
 
 export const cleanPeople = async (uncleanPeople) => {
