@@ -98,9 +98,9 @@ describe('helper.js', () => {
       window.fetch = jest.fn().mockImplementation(() => Promise.resolve({ok: true, json: () => Promise.resolve(mockUncleanItemList)}));
         
       mockUncleanItemList = {results: [
-        { name: 'bob', species: 'human', homeworld: 'Earth', popHome: '500', somethingElse: 'info that will later be removed from this object'},
+        { name: 'bob', species: 'human', homeworld: 'Earth', popHome: '500', somethingElse: 'info that will later be removed from this object', residents: []},
 
-        { name: 'bill', species: 'droid', homeworld: 'saturn', popHome: '1500', somethingElse: 'info that will later be removed from this object'}
+        { name: 'bill', species: 'droid', homeworld: 'saturn', popHome: '1500', somethingElse: 'info that will later be removed from this object', residents: []}
       ]};
       mockCleanItemList = [
         { name: 'bob', species: 'human', homeworld: 'Earth', popHome: '500'},
@@ -108,11 +108,13 @@ describe('helper.js', () => {
         { name: 'bill', species: 'droid', homeworld: 'saturn', popHome: '1500'}
       ];
     });
+
     it('should call the right function depending on the page-- people', async () => {
       const expected = Object.keys(mockCleanItemList);
       let cleanItem = await cleanItemList('people', mockUncleanItemList)
       expect(Object.keys(cleanItem)).toEqual(expected)
     });
+
     it('should call the right function depending on the page-- vehicles', async () => {
       const expected = ['Name', 'Model', 'Class', 'NumPassengers'];
       let cleanItem = await cleanItemList('vehicles', mockUncleanItemList)

@@ -81,7 +81,6 @@ export const cleanPlanets = (uncleanPlanets) => {
 };
 
 export const getResidents = async (residents) => {
-  console.log(residents)
   if(residents.length) {
     const unresolvedPromises = residents.map( async (resident) => {
       const person = await fetchCall(resident);
