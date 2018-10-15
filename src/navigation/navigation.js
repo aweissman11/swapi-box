@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import PropTypes from 'prop-types';
 import './navigation.css';
 
 class Navigation extends Component {
@@ -40,6 +40,12 @@ class Navigation extends Component {
       </div>
     );
   }
+}
+
+Navigation.propTypes = {
+  changePage: PropTypes.func.isRequired,
+  pages: PropTypes.array.isRequired,
+  currentPage: PropTypes.string.isRequired
 }
 
 export default Navigation;

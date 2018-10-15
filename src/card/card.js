@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import './card.css';
 
 const Card = (props) => {
@@ -33,5 +33,10 @@ const Card = (props) => {
     </div>
   );
 };
+
+Card.propTypes = {
+  stats: PropTypes.array.isRequired,
+  handleFavorites: PropTypes.func.isRequired
+}
 
 export default Card;

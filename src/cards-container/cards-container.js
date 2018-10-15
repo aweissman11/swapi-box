@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import PropTypes from 'prop-types';
 import Card from '../card/card';
 import './cards-container.css';
 
@@ -107,6 +107,12 @@ class CardsContainer extends Component {
       </div>
     );
   }
+};
+
+CardsContainer.propTypes = {
+  getItemList: PropTypes.func.isRequired,
+  currentPage: PropTypes.string.isRequired,
+  handleFavorites: PropTypes.func.isRequired
 }
 
 export default CardsContainer;
