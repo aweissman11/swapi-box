@@ -54,32 +54,17 @@ describe('CardsContainer', () => {
     expect(wrapper.instance().state.pageRepo).toEqual([]);
   });
   
-  it('should show all ten items', () => {
+  it('should list all the cards', () => {
+    wrapper = mount(<CardsContainer 
+      getItemList={Helper.getItemList}
+      currentPage={currentPage}
+      handleFavorites={handleFavorites}
+    />);
+    expect(wrapper.instance().state.pageRepo).toEqual([]);
     wrapper.setState({
-      pageRepo: Helper.getItemList('people')
+      pageRepo: mockList
     });
-
-    console.log(wrapper.state);
-    
-    
-    
-    
-    // wrapper = mount(<CardsContainer 
-    //   currentPage={currentPage}
-    //   getItemList={Helper.getItemList}
-    //   handleFavorites={handleFavorites}
-    // />);
-      
-    // wrapper.update();
-    // console.log(wrapper.instance().state);
-      
-    // wrapper = mount(<CardsContainer 
-    //   currentPage='planets' 
-    //   getItemList={Helper.getItemList}
-    //   handleFavorites={handleFavorites}
-    // />);
-    // wrapper.update();
-    // console.log(wrapper.instance().state);
+    expect(wrapper.instance().listCards().length).toEqual(2);
   });
 }); 
 
