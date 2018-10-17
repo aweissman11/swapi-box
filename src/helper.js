@@ -15,7 +15,9 @@ export const randomNumber = () => {
 
 export const getMovieText = async () => {
   const url = 'https://swapi.co/api/films/';
-  const uncleanMovies = await fetchCall(url);
+  //const uncleanMovies = await fetchCall(url);
+  const response = await fetch(url)
+  const uncleanMovies = await response.json()
   const movies = await cleanMovieText(uncleanMovies.results);
   return movies[randomNumber()];
 };
@@ -52,8 +54,8 @@ export const cleanItemList = async (page, uncleanItemList) => {
   }
 };
 
-export const cleanVehicles = (uncleanVehicles) => {
-  const unresolvedPromises = uncleanVehicles.map( async (vehicle) => {
+export const cleanVehicles = async (uncleanVehicles) => {
+  const unresolvedPromises = await uncleanVehicles.map((vehicle) => {
     return ({
       Name: vehicle.name,
       Model: vehicle.model,
