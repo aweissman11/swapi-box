@@ -64,22 +64,25 @@ describe('helper.js', () => {
       //set-up
       let rndm = randomNumber();
       //execution
-      // let rndm = Math.floor(Math.random() * Math.floor(6));
       //expectation
       expect(rndm).toBeLessThan(6.1);
       expect(rndm).toBeGreaterThan(-.1);
     });
 
-    describe('getMovieText', () => {
-      let mockuncleanMovies;
-      let mockmovieObject;
-      // let mockrandomNumber
+  describe('getMovieText', () => {
+    let mockuncleanMovies;
+    let mockmovieObject;
       
-      beforeEach(() => {
-        window.fetch = jest.fn().mockImplementation(() => Promise.resolve({ok: true, json: () => Promise.resolve(mockmovieObject)}));
+    beforeEach(() => {
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({ok: true, json: () => Promise.resolve(mockmovieObject)}));
         mockmovieObject = { results: [
           { title: 'StarTrek', date: 'December 31 1999', opening: 'Space: the final frontier.  These are the voyages of the starship Enterprise.  Its five-year mission: to explore strange new worlds. To seek out new life and new civilizations.  To boldly go where no man has gone before!', somethingElse: 'info that will later be removed from this object'},
-          { title: 'A Tale of Two Cities', date: 'January 1 2000', opening: 'It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we', somethingElse: 'info that will be taken out of this object'}
+          { title: 'A Tale of Two Cities', date: 'January 1 2000', opening: 'It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we', somethingElse: 'info that will be taken out of this object'},
+          { title: 'three', date: 'march', opening: 'three is a magic number', somethingElse: 'remove this'},
+          { title: 'four', date: 'april', opening: 'four is a magic number', somethingElse: 'remove this'},
+          { title: 'five', date: 'may', opening: 'five is a magic number', somethingElse: 'remove this'},
+          { title: 'six', date: 'june', opening: 'six is a magic number', somethingElse: 'remove this'},
+          { title: 'seven', date: 'july', opening: 'seven is a magic number', somethingElse: 'remove this'},
         ] };
       });
 
@@ -89,27 +92,28 @@ describe('helper.js', () => {
       });
     });
   
-    describe('cleanMovieText', () => {
-      let mockuncleanMovies;
+  describe('cleanMovieText', () => {
+    let mockuncleanMovies;
       
-      beforeEach(() => {
+    beforeEach(() => {
         mockuncleanMovies = [
           { title: 'StarTrek', date: 'December 31 1999', opening: 'Space: the final frontier.  These are the voyages of the starship Enterprise.  Its five-year mission: to explore strange new worlds. To seek out new life and new civilizations.  To boldly go where no man has gone before!', somethingElse: 'info that will later be removed from this object'},
           
           { title: 'A Tale of Two Cities', date: 'January 1 2000', opening: 'It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we', somethingElse: 'info that will be taken out of this object'}
         ];
       });
-      it('should return the same number of movies', () => {
+
+    it('should return the same number of movies', () => {
       //set-up
-        const expected = mockuncleanMovies.length;
+      const expected = mockuncleanMovies.length;
         //execution
         
-        let cleanMovies = cleanMovieText(mockuncleanMovies);
+      let cleanMovies = cleanMovieText(mockuncleanMovies);
         //expectation
-        expect(cleanMovies.length).toEqual(expected);
+      expect(cleanMovies.length).toEqual(expected);
       });
       
-      it('should remove unnecessary information from the movies', () => {
+    it('should remove unnecessary information from the movies', () => {
       //set-up
         const expected = ['title', 'date', 'opening'];
         //execution
