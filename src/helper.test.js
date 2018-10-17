@@ -48,13 +48,13 @@ describe('helper.js', () => {
       await expect(fetchCall(mockURL)).rejects.toEqual(expected);
     });
     
-    // it('should throw an error if fetch fails', async () => {
-    //   //set-up
-    //   const expected = Error('API call failed')
-    //   window.fetch = jest.fn().mockImplementation(() => Promise.reject('API call failed'))
-    //   //execution && expectation
-    //   await expect(fetchCall(mockURL)).rejects.toEqual(expected)
-    // })
+    it('should throw an error if fetch fails', async () => {
+      //set-up
+      const expected = Error('API call failed')
+      window.fetch = jest.fn().mockImplementation(() => Promise.reject(Error('API call failed')))
+      //execution && expectation
+      await expect(fetchCall(mockURL)).rejects.toEqual(expected)
+    })
       
   });
   
@@ -68,6 +68,38 @@ describe('helper.js', () => {
       expect(rndm).toBeLessThan(6.1);
       expect(rndm).toBeGreaterThan(-.1);
     });
+
+  })
+
+  describe('getItemList', () => {
+    let mockmovieObject;
+    let cleanItemList;
+
+    beforeEach( ()=> {
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({ok: true, json: () => Promise.resolve(mockmovieObject)}));
+        mockmovieObject = { results: [
+          { Name: 'three', Model: 'march', Class: 'three is a magic number', NumPassengers: 100, somethingElse: 'remove this'},
+          { Name: 'four', Model: 'april', Class: 'four is a magic number', NumPassengers: 101, somethingElse: 'remove this'},
+          { Name: 'five', Model: 'may', Class: 'five is a magic number', NumPassengers: 103, somethingElse: 'remove this'},
+          { Name: 'six', Model: 'june', Class: 'six is a magic number', NumPassengers: 104, somethingElse: 'remove this'},
+          { Name: 'seven', Model: 'july', Class: 'seven is a magic number', NumPassengers: 105, somethingElse: 'remove this'},
+        ] };
+        cleanItemList = [
+          { Name: 'three', Model: 'march', Class: 'three is a magic number', NumPassengers: 100},
+          { Name: 'four', Model: 'april', Class: 'four is a magic number', NumPassengers: 101},
+          { Name: 'five', Model: 'may', Class: 'five is a magic number', NumPassengers: 103},
+          { Name: 'six', Model: 'june', Class: 'six is a magic number', NumPassengers: 104},
+          { Name: 'seven', Model: 'july', Class: 'seven is a magic number', NumPassengers: 105},
+        ];
+    })
+
+    it('should return an itemList that has been cleaned according the the parameters passed', async () => {
+      let mockitemList = await getItemList('vehicles', 1);
+      expect(mockitemList).toEqual(cleanItemList)
+    })
+
+  })
+
 
   describe('getMovieText', () => {
     let mockuncleanMovies;
@@ -84,13 +116,13 @@ describe('helper.js', () => {
           { title: 'six', date: 'june', opening: 'six is a magic number', somethingElse: 'remove this'},
           { title: 'seven', date: 'july', opening: 'seven is a magic number', somethingElse: 'remove this'},
         ] };
-      });
-
-      it('should return just one movie', async () => {
-        let movie = await getMovieText();
-        expect(Object.keys(movie)).toEqual(['title', 'date', 'opening']);
-      });
     });
+
+    it('should return just one movie', async () => {
+      let movie = await getMovieText();
+      expect(Object.keys(movie)).toEqual(['title', 'date', 'opening']);
+    });
+  });
   
   describe('cleanMovieText', () => {
     let mockuncleanMovies;
@@ -101,7 +133,7 @@ describe('helper.js', () => {
           
           { title: 'A Tale of Two Cities', date: 'January 1 2000', opening: 'It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we', somethingElse: 'info that will be taken out of this object'}
         ];
-      });
+    });
 
     it('should return the same number of movies', () => {
       //set-up
@@ -120,56 +152,52 @@ describe('helper.js', () => {
         let cleanMovies = cleanMovieText(mockuncleanMovies);
         //expectation
         expect(Object.keys(cleanMovies[0])).toEqual(expected);
-      });
-      
     });
-    describe('cleanItemList', () => {
-      let mockUncleanItemList;
-      let mockCleanItemList;
-
-      beforeEach(() => {
-        
-        window.fetch = jest.fn().mockImplementation(() => Promise.resolve({ok: true, json: () => Promise.resolve(mockUncleanItemList)}));
-        
-        mockUncleanItemList = {results: [
-          { name: 'bob', species: 'human', homeworld: 'Earth', popHome: '500', somethingElse: 'info that will later be removed from this object', residents: []},
-
-          { name: 'bill', species: 'droid', homeworld: 'saturn', popHome: '1500', somethingElse: 'info that will later be removed from this object', residents: []}
-        ]};
-        mockCleanItemList = [
-          { name: 'bob', species: 'human', homeworld: 'Earth', popHome: '500'},
-
-          { name: 'bill', species: 'droid', homeworld: 'saturn', popHome: '1500'}
-        ];
-      });
-
-      it('should call the right function depending on the page-- people', async () => {
-        const expected = Object.keys(mockCleanItemList);
-        let cleanItem = await cleanItemList('people', mockUncleanItemList);
-        expect(Object.keys(cleanItem)).toEqual(expected);
-      });
-
-      it('should call the right function depending on the page-- vehicles', async () => {
-        const expected = ['Name', 'Model', 'Class', 'NumPassengers'];
-        let cleanItem = await cleanItemList('vehicles', mockUncleanItemList);
-        expect(Object.keys(cleanItem[0])).toEqual(expected);
-      });
-
-      it('should call the right function depending on the page-- planets', async () => {
-        const expected = ['Name', 'Terrain', 'Population', 'Climate', 'Residents'];
-        let cleanItem = await cleanItemList('planets', mockUncleanItemList);
-        expect(Object.keys(cleanItem[0])).toEqual(expected);
-      });
-
-      it('should return an empty array if it does not recognize the page', async () => {
-      //execution
-        let cleanItem = await cleanItemList('shiggityBop', mockUncleanItemList);
-        expect(cleanItem).toEqual([]);
-      //expectation
-      });
-    });
-      
       
   });
 
+  describe('cleanItemList', () => {
+    let mockUncleanItemList;
+    let mockCleanItemList;
+
+    beforeEach(() => {
+        
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({ok: true, json: () => Promise.resolve(mockUncleanItemList)}));
+        
+      mockUncleanItemList = {results: [
+        { name: 'bob', species: 'human', homeworld: 'Earth', popHome: '500', somethingElse: 'info that will later be removed from this object', residents: []},
+        { name: 'bill', species: 'droid', homeworld: 'saturn', popHome: '1500', somethingElse: 'info that will later be removed from this object', residents: []}
+        ]};
+      mockCleanItemList = [
+        { name: 'bob', species: 'human', homeworld: 'Earth', popHome: '500'},
+        { name: 'bill', species: 'droid', homeworld: 'saturn', popHome: '1500'}
+        ];
+    });
+
+    it('should call the right function depending on the page-- people', async () => {
+      const expected = Object.keys(mockCleanItemList);
+      let cleanItem = await cleanItemList('people', mockUncleanItemList);
+      expect(Object.keys(cleanItem)).toEqual(expected);
+    });
+
+    it('should call the right function depending on the page-- vehicles', async () => {
+      const expected = ['Name', 'Model', 'Class', 'NumPassengers'];
+      let cleanItem = await cleanItemList('vehicles', mockUncleanItemList);
+      expect(Object.keys(cleanItem[0])).toEqual(expected);
+    });
+
+    it('should call the right function depending on the page-- planets', async () => {
+      const expected = ['Name', 'Terrain', 'Population', 'Climate', 'Residents'];
+      let cleanItem = await cleanItemList('planets', mockUncleanItemList);
+      expect(Object.keys(cleanItem[0])).toEqual(expected);
+    });
+
+    it('should return an empty array if it does not recognize the page', async () => {
+    //execution
+      let cleanItem = await cleanItemList('shiggityBop', mockUncleanItemList);
+      expect(cleanItem).toEqual([]);
+    //expectation
+    });
+  });      
+      
 });

@@ -30,8 +30,12 @@ class App extends Component {
   }
 
   async componentDidMount() {
-    const movie = await getMovieText();
-    this.setState({ movie });
+    try {
+      const movie = await getMovieText();
+      this.setState({ movie });
+    } catch(error){
+      // do something for the user
+    }
   }
 
   handleFavorites = (stats) => {
