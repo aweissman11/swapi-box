@@ -48,8 +48,7 @@ export const cleanItemList = async (page, uncleanItemList) => {
       cleanList = await cleanPlanets(uncleanItemList.results);
       return cleanList;
     default:
-      cleanList = uncleanItemList;
-      return cleanList;
+      return [];
   }
 };
 
@@ -81,7 +80,7 @@ export const cleanPlanets = (uncleanPlanets) => {
 };
 
 export const getResidents = async (residents) => {
-  if(residents.length) {
+  if (residents.length) {
     const unresolvedPromises = residents.map( async (resident) => {
       const person = await fetchCall(resident);
       return person.name;
@@ -89,7 +88,7 @@ export const getResidents = async (residents) => {
   
     return Promise.all(unresolvedPromises);
   } else {
-    return Promise.resolve('Nobody lives here')
+    return Promise.resolve('Nobody lives here');
   }
 };
 
