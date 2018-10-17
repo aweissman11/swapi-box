@@ -27,11 +27,24 @@ describe('App', () => {
       ];
     localStorage.setItem('favorites', JSON.stringify(mockStats));
     wrapper.instance().handleFavorites({Name: 'bill', species: 'droid', homeworld: 'saturn', popHome: '1500'});
-    console.log(localStorage.getItem('favorites'));
     const getItem = localStorage.getItem('favorites');
     expect(JSON.parse(getItem)).toEqual(expected)
 
-  }) 
+  });
+
+  it('should add an item to favorites if clicked as a favorite', () => {
+    const expected = [
+      { Name: 'bob', species: 'human', homeworld: 'Earth', popHome: '500'},
+      { Name: 'bill', species: 'droid', homeworld: 'saturn', popHome: '1500'},
+      { Name: 'sara', species: 'unknown', homeworld: 'Pluto-- yes according to natives it is a planet', popHome: '14'}
+      ];
+    localStorage.setItem('favorites', JSON.stringify(mockStats));
+    wrapper.instance().handleFavorites({ Name: 'sara', species: 'unknown', homeworld: 'Pluto-- yes according to natives it is a planet', popHome: '14'})
+    const getItem = localStorage.getItem('favorites');
+    expect(JSON.parse(getItem)).toEqual(expected)
+    
+  })
+
   // 'movies state begins as an empty array, and is set upon calling componentDidMount'
 
   // 'movies state is updated to contain an array of objects with cleaned data'
