@@ -9,8 +9,8 @@ describe('App', () => {
 
   beforeEach( ()=>{
      mockStats = [
-      { name: 'bob', species: 'human', homeworld: 'Earth', popHome: '500'},
-      { name: 'bill', species: 'droid', homeworld: 'saturn', popHome: '1500'}
+      { Name: 'bob', species: 'human', homeworld: 'Earth', popHome: '500'},
+      { Name: 'bill', species: 'droid', homeworld: 'saturn', popHome: '1500'}
       ];
     wrapper = shallow(<App />)
   })
@@ -23,13 +23,13 @@ describe('App', () => {
 
   it('should remove an item from favorites if clicked as no longer being a favorite', () => {
     const expected = [
-      { name: 'bob', species: 'human', homeworld: 'Earth', popHome: '500'}
+      { Name: 'bob', species: 'human', homeworld: 'Earth', popHome: '500'}
       ];
     localStorage.setItem('favorites', JSON.stringify(mockStats));
-    wrapper.instance().handleFavorites({name: 'bill', species: 'droid', homeworld: 'saturn', popHome: '1500'});
+    wrapper.instance().handleFavorites({Name: 'bill', species: 'droid', homeworld: 'saturn', popHome: '1500'});
     console.log(localStorage.getItem('favorites'));
-    // const getItem = localStorage.getItem('favorites');
-    // expect(JSON.parse(getItem)).toEqual(expected)
+    const getItem = localStorage.getItem('favorites');
+    expect(JSON.parse(getItem)).toEqual(expected)
 
   }) 
   // 'movies state begins as an empty array, and is set upon calling componentDidMount'
