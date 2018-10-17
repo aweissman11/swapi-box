@@ -39,13 +39,14 @@ class App extends Component {
     if (localStorage.getItem('favorites')) {
       const jStored = localStorage.getItem('favorites');
       let stored = JSON.parse(jStored);
-      
+
       if (!stored.find( item => item.Name === stats.Name)) {
         stored.push(stats);
       } else {
         stored = stored.filter( item => item.Name !== stats.Name);
       }
       localStorage.setItem('favorites', JSON.stringify(stored));
+      
     } else {
       const storageStats = JSON.stringify([stats]);
       localStorage.setItem('favorites', storageStats);
