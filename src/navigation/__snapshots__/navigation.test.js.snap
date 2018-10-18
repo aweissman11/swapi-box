@@ -1,0 +1,693 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navigation should match the snapshot 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Navigation
+    changePage={[MockFunction]}
+    currentPage="people"
+    totalFavorites={3}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": <ul
+        className="nav-ul"
+      >
+        <NavLink
+          activeClassName="active"
+          aria-current="page"
+          className="nav-link-home"
+          onClick={[Function]}
+          to="/"
+        >
+          <li
+            className="nav-btn"
+          >
+            Home
+          </li>
+        </NavLink>
+        <NavLink
+          activeClassName="active"
+          aria-current="page"
+          className="nav-link-people"
+          onClick={[Function]}
+          to="/people"
+        >
+          <li
+            className="current-nav-btn"
+          >
+            People
+          </li>
+        </NavLink>
+        <NavLink
+          activeClassName="active"
+          aria-current="page"
+          className="nav-link-planets"
+          onClick={[Function]}
+          to="/planets"
+        >
+          <li
+            className="nav-btn"
+          >
+            Planets
+          </li>
+        </NavLink>
+        <NavLink
+          activeClassName="active"
+          aria-current="page"
+          className="nav-link-vehicles"
+          onClick={[Function]}
+          to="/vehicles"
+        >
+          <li
+            className="nav-btn"
+          >
+            Vehicles
+          </li>
+        </NavLink>
+        <NavLink
+          activeClassName="active"
+          aria-current="page"
+          className="nav-link-favorites"
+          onClick={[Function]}
+          to="/favorites"
+        >
+          <li
+            className="nav-btn"
+          >
+            Favorites [
+            3
+            ]
+          </li>
+        </NavLink>
+      </ul>,
+      "className": "navigation",
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <NavLink
+            activeClassName="active"
+            aria-current="page"
+            className="nav-link-home"
+            onClick={[Function]}
+            to="/"
+          >
+            <li
+              className="nav-btn"
+            >
+              Home
+            </li>
+          </NavLink>,
+          <NavLink
+            activeClassName="active"
+            aria-current="page"
+            className="nav-link-people"
+            onClick={[Function]}
+            to="/people"
+          >
+            <li
+              className="current-nav-btn"
+            >
+              People
+            </li>
+          </NavLink>,
+          <NavLink
+            activeClassName="active"
+            aria-current="page"
+            className="nav-link-planets"
+            onClick={[Function]}
+            to="/planets"
+          >
+            <li
+              className="nav-btn"
+            >
+              Planets
+            </li>
+          </NavLink>,
+          <NavLink
+            activeClassName="active"
+            aria-current="page"
+            className="nav-link-vehicles"
+            onClick={[Function]}
+            to="/vehicles"
+          >
+            <li
+              className="nav-btn"
+            >
+              Vehicles
+            </li>
+          </NavLink>,
+          <NavLink
+            activeClassName="active"
+            aria-current="page"
+            className="nav-link-favorites"
+            onClick={[Function]}
+            to="/favorites"
+          >
+            <li
+              className="nav-btn"
+            >
+              Favorites [
+              3
+              ]
+            </li>
+          </NavLink>,
+        ],
+        "className": "nav-ul",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "activeClassName": "active",
+            "aria-current": "page",
+            "children": <li
+              className="nav-btn"
+            >
+              Home
+            </li>,
+            "className": "nav-link-home",
+            "onClick": [Function],
+            "to": "/",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Home",
+              "className": "nav-btn",
+            },
+            "ref": null,
+            "rendered": "Home",
+            "type": "li",
+          },
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "activeClassName": "active",
+            "aria-current": "page",
+            "children": <li
+              className="current-nav-btn"
+            >
+              People
+            </li>,
+            "className": "nav-link-people",
+            "onClick": [Function],
+            "to": "/people",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "People",
+              "className": "current-nav-btn",
+            },
+            "ref": null,
+            "rendered": "People",
+            "type": "li",
+          },
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "activeClassName": "active",
+            "aria-current": "page",
+            "children": <li
+              className="nav-btn"
+            >
+              Planets
+            </li>,
+            "className": "nav-link-planets",
+            "onClick": [Function],
+            "to": "/planets",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Planets",
+              "className": "nav-btn",
+            },
+            "ref": null,
+            "rendered": "Planets",
+            "type": "li",
+          },
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "activeClassName": "active",
+            "aria-current": "page",
+            "children": <li
+              className="nav-btn"
+            >
+              Vehicles
+            </li>,
+            "className": "nav-link-vehicles",
+            "onClick": [Function],
+            "to": "/vehicles",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Vehicles",
+              "className": "nav-btn",
+            },
+            "ref": null,
+            "rendered": "Vehicles",
+            "type": "li",
+          },
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "activeClassName": "active",
+            "aria-current": "page",
+            "children": <li
+              className="nav-btn"
+            >
+              Favorites [
+              3
+              ]
+            </li>,
+            "className": "nav-link-favorites",
+            "onClick": [Function],
+            "to": "/favorites",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "Favorites [",
+                3,
+                "]",
+              ],
+              "className": "nav-btn",
+            },
+            "ref": null,
+            "rendered": Array [
+              "Favorites [",
+              3,
+              "]",
+            ],
+            "type": "li",
+          },
+          "type": [Function],
+        },
+      ],
+      "type": "ul",
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <ul
+          className="nav-ul"
+        >
+          <NavLink
+            activeClassName="active"
+            aria-current="page"
+            className="nav-link-home"
+            onClick={[Function]}
+            to="/"
+          >
+            <li
+              className="nav-btn"
+            >
+              Home
+            </li>
+          </NavLink>
+          <NavLink
+            activeClassName="active"
+            aria-current="page"
+            className="nav-link-people"
+            onClick={[Function]}
+            to="/people"
+          >
+            <li
+              className="current-nav-btn"
+            >
+              People
+            </li>
+          </NavLink>
+          <NavLink
+            activeClassName="active"
+            aria-current="page"
+            className="nav-link-planets"
+            onClick={[Function]}
+            to="/planets"
+          >
+            <li
+              className="nav-btn"
+            >
+              Planets
+            </li>
+          </NavLink>
+          <NavLink
+            activeClassName="active"
+            aria-current="page"
+            className="nav-link-vehicles"
+            onClick={[Function]}
+            to="/vehicles"
+          >
+            <li
+              className="nav-btn"
+            >
+              Vehicles
+            </li>
+          </NavLink>
+          <NavLink
+            activeClassName="active"
+            aria-current="page"
+            className="nav-link-favorites"
+            onClick={[Function]}
+            to="/favorites"
+          >
+            <li
+              className="nav-btn"
+            >
+              Favorites [
+              3
+              ]
+            </li>
+          </NavLink>
+        </ul>,
+        "className": "navigation",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <NavLink
+              activeClassName="active"
+              aria-current="page"
+              className="nav-link-home"
+              onClick={[Function]}
+              to="/"
+            >
+              <li
+                className="nav-btn"
+              >
+                Home
+              </li>
+            </NavLink>,
+            <NavLink
+              activeClassName="active"
+              aria-current="page"
+              className="nav-link-people"
+              onClick={[Function]}
+              to="/people"
+            >
+              <li
+                className="current-nav-btn"
+              >
+                People
+              </li>
+            </NavLink>,
+            <NavLink
+              activeClassName="active"
+              aria-current="page"
+              className="nav-link-planets"
+              onClick={[Function]}
+              to="/planets"
+            >
+              <li
+                className="nav-btn"
+              >
+                Planets
+              </li>
+            </NavLink>,
+            <NavLink
+              activeClassName="active"
+              aria-current="page"
+              className="nav-link-vehicles"
+              onClick={[Function]}
+              to="/vehicles"
+            >
+              <li
+                className="nav-btn"
+              >
+                Vehicles
+              </li>
+            </NavLink>,
+            <NavLink
+              activeClassName="active"
+              aria-current="page"
+              className="nav-link-favorites"
+              onClick={[Function]}
+              to="/favorites"
+            >
+              <li
+                className="nav-btn"
+              >
+                Favorites [
+                3
+                ]
+              </li>
+            </NavLink>,
+          ],
+          "className": "nav-ul",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "activeClassName": "active",
+              "aria-current": "page",
+              "children": <li
+                className="nav-btn"
+              >
+                Home
+              </li>,
+              "className": "nav-link-home",
+              "onClick": [Function],
+              "to": "/",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Home",
+                "className": "nav-btn",
+              },
+              "ref": null,
+              "rendered": "Home",
+              "type": "li",
+            },
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "activeClassName": "active",
+              "aria-current": "page",
+              "children": <li
+                className="current-nav-btn"
+              >
+                People
+              </li>,
+              "className": "nav-link-people",
+              "onClick": [Function],
+              "to": "/people",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "People",
+                "className": "current-nav-btn",
+              },
+              "ref": null,
+              "rendered": "People",
+              "type": "li",
+            },
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "activeClassName": "active",
+              "aria-current": "page",
+              "children": <li
+                className="nav-btn"
+              >
+                Planets
+              </li>,
+              "className": "nav-link-planets",
+              "onClick": [Function],
+              "to": "/planets",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Planets",
+                "className": "nav-btn",
+              },
+              "ref": null,
+              "rendered": "Planets",
+              "type": "li",
+            },
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "activeClassName": "active",
+              "aria-current": "page",
+              "children": <li
+                className="nav-btn"
+              >
+                Vehicles
+              </li>,
+              "className": "nav-link-vehicles",
+              "onClick": [Function],
+              "to": "/vehicles",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Vehicles",
+                "className": "nav-btn",
+              },
+              "ref": null,
+              "rendered": "Vehicles",
+              "type": "li",
+            },
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "activeClassName": "active",
+              "aria-current": "page",
+              "children": <li
+                className="nav-btn"
+              >
+                Favorites [
+                3
+                ]
+              </li>,
+              "className": "nav-link-favorites",
+              "onClick": [Function],
+              "to": "/favorites",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "Favorites [",
+                  3,
+                  "]",
+                ],
+                "className": "nav-btn",
+              },
+              "ref": null,
+              "rendered": Array [
+                "Favorites [",
+                3,
+                "]",
+              ],
+              "type": "li",
+            },
+            "type": [Function],
+          },
+        ],
+        "type": "ul",
+      },
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
