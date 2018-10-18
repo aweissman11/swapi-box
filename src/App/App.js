@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Route, NavLink } from 'react-router-dom';
 
 import ScrollSection from '../scroll-section/scroll-section';
 import CardsContainer from '../cards-container/cards-container';
@@ -67,20 +68,52 @@ class App extends Component {
           currentPage={ currentPage }
           pages={ pages }
         />
-        {
-          (currentPage === 'home') ? 
-            <ScrollSection 
-              movie={ movie }
-            /> : 
-            <CardsContainer
-              currentPage={currentPage}
+        <Route exact path='/' render={({ match }) => {
+          return <ScrollSection
+            movie={movie} />
+        }} />
+        <Route exact path='/people' render={({ match }) => {
+          return <CardsContainer
+              currentPage='people'
               getItemList={getItemList}
               handleFavorites={this.handleFavorites}
             />
-        }
+        }} />
+        <Route exact path='/planets' render={({ match }) => {
+          return <CardsContainer
+              currentPage='planets'
+              getItemList={getItemList}
+              handleFavorites={this.handleFavorites}
+            />
+        }} />
+        <Route exact path='/vehicles' render={({ match }) => {
+          return <CardsContainer
+              currentPage='vehicles'
+              getItemList={getItemList}
+              handleFavorites={this.handleFavorites}
+            />
+        }} />
+        <Route exact path='/favorites' render={({ match }) => {
+          return <CardsContainer
+              currentPage='favorites'
+              getItemList={getItemList}
+              handleFavorites={this.handleFavorites}
+            />
+        }} />
       </div>
     );
   }
 }
 
 export default App;
+        // {
+        //   (currentPage === 'home') ? 
+        //     <ScrollSection 
+        //       movie={ movie }
+        //     /> : 
+        //     <CardsContainer
+        //       currentPage={currentPage}
+        //       getItemList={getItemList}
+        //       handleFavorites={this.handleFavorites}
+        //     />
+        // }
