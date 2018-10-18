@@ -15,7 +15,6 @@ class App extends Component {
       movie: {},
       currentPage: 'home',
       pageRepo: [],
-      pages: ['Home', 'People', 'Planets', 'Vehicles', 'Favorites'],
       totalFavorites: this.getTotalFavorites()
     };
   }
@@ -69,14 +68,13 @@ class App extends Component {
   }
 
   render() {
-    const { currentPage, movie, pages, totalFavorites } = this.state;
+    const { currentPage, movie, totalFavorites } = this.state;
 
     return (
       <div className="App">
         <Navigation
           changePage={this.changePage}
           currentPage={currentPage}
-          pages={pages}
           totalFavorites={totalFavorites}
         />
         <Route exact path='/' render={({ match }) => {
