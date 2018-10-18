@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
+
 import PropTypes from 'prop-types';
 import './navigation.css';
 
@@ -10,32 +12,21 @@ class Navigation extends Component {
     return (
       <div className='navigation'>
         <ul>
-          {
-            pages.map( page => {
-              if (page.toLowerCase() === currentPage) {
-                return (
-                  <li
-                    key={page}
-                    onClick={() => changePage(page.toLowerCase())}
-                    className='current-nav-btn'
-                  >
-                    {page}
-                  </li>
-                );
-              } else {
-                return (
-                  <li
-                    key={page}
-                    onClick={() => changePage(page.toLowerCase())}
-                    className='nav-btn'
-                  >
-                    {page}
-                  </li>
-                );
-              }
-            })
-          }
-
+          <li> 
+            <NavLink to='/' className='nav-btn' >Home</NavLink>
+          </li>
+          <li> 
+            <NavLink to='/people' className='nav-btn' >People</NavLink>
+          </li>
+          <li> 
+            <NavLink to='/planets' className='nav-btn' >Planets</NavLink>
+          </li>
+          <li> 
+            <NavLink to='/vehicles' className='nav-btn' >Vehicles</NavLink>
+          </li>
+          <li> 
+            <NavLink to='/favorites' className='nav-btn' >Favorites</NavLink>
+          </li>
         </ul>
       </div>
     );
@@ -50,23 +41,28 @@ Navigation.propTypes = {
 
 export default Navigation;
 
-// <li onClick={() => changePage('scroll')}>Home</li>
-// <li onClick={() => changePage('people')}>People</li>
-// <li onClick={() => changePage('planets')}>Planets</li>
-// <li onClick={() => changePage('vehicles')}>Vehicles</li>
-// <li onClick={() => changePage('favorites')}>Favorites</li>
-// <div className='audio-controls'>
-//   <p>
-//     <audio 
-//       controls
-//       autoPlay 
-//       id='swars-theme'
-//     >
-//     <source
-//       type='audio/mp3'
-//       href='./theme-song.mp3'
-//       src={themeSong}
-//       />
-//     </audio>
-//   </p>
-// </div>
+// {
+//             pages.map( page => {
+//               if (page.toLowerCase() === currentPage) {
+//                 return (
+//                   <li
+//                     key={page}
+//                     onClick={() => changePage(page.toLowerCase())}
+//                     className='current-nav-btn'
+//                   >
+//                     {page}
+//                   </li>
+//                 );
+//               } else {
+//                 return (
+//                   <li
+//                     key={page}
+//                     onClick={() => changePage(page.toLowerCase())}
+//                     className='nav-btn'
+//                   >
+//                     {page}
+//                   </li>
+//                 );
+//               }
+//             })
+//           // }
