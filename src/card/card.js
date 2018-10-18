@@ -63,7 +63,7 @@ class Card extends Component {
         }
         <div>
           {
-            (this.props.currentPage == 'favorites') ? 
+            (this.props.currentPage === 'favorites') ? 
               <p>{this.state.nowRemoved}</p> :
               <p></p>
           }
@@ -86,7 +86,7 @@ class Card extends Component {
 Card.propTypes = {
   stats: PropTypes.object.isRequired,
   handleFavorites: PropTypes.func.isRequired,
-  currentPage: PropTypes.string.isRequired,
+  currentPage: PropTypes.string.isRequired
 };
 
 export default Card;
