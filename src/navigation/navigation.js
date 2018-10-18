@@ -56,7 +56,6 @@ class Navigation extends Component {
 
 Navigation.propTypes = {
   changePage: PropTypes.func.isRequired,
-  pages: PropTypes.array.isRequired,
   currentPage: PropTypes.string.isRequired,
   totalFavorites: PropTypes.number.isRequired
 };

@@ -181,7 +181,7 @@ describe('helper.js', () => {
     });
 
     it('should call the right function depending on the page-- vehicles', async () => {
-      const expected = ['Name', 'Model', 'Class', 'NumPassengers'];
+      const expected = ['Name', 'Model', 'Class', 'Passengers'];
       let cleanItem = await cleanItemList('vehicles', mockUncleanItemList);
       expect(Object.keys(cleanItem[0])).toEqual(expected);
     });
