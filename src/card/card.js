@@ -85,7 +85,8 @@ class Card extends Component {
 
 Card.propTypes = {
   stats: PropTypes.object.isRequired,
-  handleFavorites: PropTypes.func.isRequired
+  handleFavorites: PropTypes.func.isRequired,
+  currentPage: PropTypes.string.isRequired,
 };
 
 export default Card;
