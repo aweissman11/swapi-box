@@ -115,14 +115,3 @@ class App extends Component {
 }
 
 export default App;
-// {
-//   (currentPage === 'home') ? 
-//     <ScrollSection 
-//       movie={ movie }
-//     /> : 
-//     <CardsContainer
-//       currentPage={currentPage}
-//       getItemList={getItemList}
-//       handleFavorites={this.handleFavorites}
-//     />
-// }

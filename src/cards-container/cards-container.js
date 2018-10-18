@@ -61,59 +61,61 @@ class CardsContainer extends Component {
           console.log(`Somehow, you've managed to escape`);
       }
     } catch (error) {
-      console.error(error.message);
-     
+      throw new Error('These are not the cards you are looking for... Are you connected to the internet? If so, please wait, the API is likely down.');
     }
   }
     
   async componentDidUpdate(prevProps) {
     const { getItemList, currentPage } = this.props;
     let pageRepo;
-      
-    if (currentPage !== prevProps.currentPage) {
-      switch (currentPage) {
-        case ('people') :
-          if (!localStorage.getItem('people')) {
-            pageRepo = await getItemList(currentPage);
-            localStorage.setItem('people', JSON.stringify(pageRepo));
-            this.setState({ pageRepo });
-          } else {
-            pageRepo = JSON.parse(localStorage.getItem('people'));
-            this.setState({ pageRepo });
-          }
-          break;
-        case ('planets') :
-          if (!localStorage.getItem('planets')) {
-            pageRepo = await getItemList(currentPage);
-            localStorage.setItem('planets', JSON.stringify(pageRepo));
-            this.setState({ pageRepo });
-          } else {
-            pageRepo = JSON.parse(localStorage.getItem('planets'));
-            this.setState({ pageRepo });
-          }
-          break;
-        case ('vehicles') :
-          if (!localStorage.getItem('vehicles')) {
-            pageRepo = await getItemList(currentPage);
-            localStorage.setItem('vehicles', JSON.stringify(pageRepo));
-            this.setState({ pageRepo });
-          } else {
-            pageRepo = JSON.parse(localStorage.getItem('vehicles'));
-            this.setState({ pageRepo });
-          }
-          break;
-        case ('favorites') :
-          if (localStorage.getItem('favorites')) {
-            pageRepo = JSON.parse(localStorage.getItem('favorites'));
-            this.setState({ pageRepo });
+    try {
+      if (currentPage !== prevProps.currentPage) {
+        switch (currentPage) {
+          case ('people') :
+            if (!localStorage.getItem('people')) {
+              pageRepo = await getItemList(currentPage);
+              localStorage.setItem('people', JSON.stringify(pageRepo));
+              this.setState({ pageRepo });
+            } else {
+              pageRepo = JSON.parse(localStorage.getItem('people'));
+              this.setState({ pageRepo });
+            }
             break;
-          } else {
-            this.setState({ pageRepo: [] });
+          case ('planets') :
+            if (!localStorage.getItem('planets')) {
+              pageRepo = await getItemList(currentPage);
+              localStorage.setItem('planets', JSON.stringify(pageRepo));
+              this.setState({ pageRepo });
+            } else {
+              pageRepo = JSON.parse(localStorage.getItem('planets'));
+              this.setState({ pageRepo });
+            }
             break;
-          }
-        default:
-          console.log(`Somehow, you've managed to escape`);
+          case ('vehicles') :
+            if (!localStorage.getItem('vehicles')) {
+              pageRepo = await getItemList(currentPage);
+              localStorage.setItem('vehicles', JSON.stringify(pageRepo));
+              this.setState({ pageRepo });
+            } else {
+              pageRepo = JSON.parse(localStorage.getItem('vehicles'));
+              this.setState({ pageRepo });
+            }
+            break;
+          case ('favorites') :
+            if (localStorage.getItem('favorites')) {
+              pageRepo = JSON.parse(localStorage.getItem('favorites'));
+              this.setState({ pageRepo });
+              break;
+            } else {
+              this.setState({ pageRepo: [] });
+              break;
+            }
+          default:
+            console.log(`Somehow, you've managed to escape`);
+        }
       }
+    } catch {
+      throw new Error('These are not the cards you are looking for... Are you connected to the internet? If so, please wait, the API is likely down.');
     }
   }
 
