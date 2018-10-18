@@ -50,11 +50,11 @@ describe('helper.js', () => {
     
     it('should throw an error if fetch fails', async () => {
       //set-up
-      const expected = Error('API call failed')
-      window.fetch = jest.fn().mockImplementation(() => Promise.reject(Error('API call failed')))
+      const expected = Error('API call failed');
+      window.fetch = jest.fn().mockImplementation(() => Promise.reject(Error('API call failed')));
       //execution && expectation
-      await expect(fetchCall(mockURL)).rejects.toEqual(expected)
-    })
+      await expect(fetchCall(mockURL)).rejects.toEqual(expected);
+    });
       
   });
   
@@ -69,7 +69,7 @@ describe('helper.js', () => {
       expect(rndm).toBeGreaterThan(-.1);
     });
 
-  })
+  });
 
   describe('getItemList', () => {
     let mockmovieObject;
@@ -77,28 +77,28 @@ describe('helper.js', () => {
 
     beforeEach( ()=> {
       window.fetch = jest.fn().mockImplementation(() => Promise.resolve({ok: true, json: () => Promise.resolve(mockmovieObject)}));
-        mockmovieObject = { results: [
-          { Name: 'three', Model: 'march', Class: 'three is a magic number', NumPassengers: 100, somethingElse: 'remove this'},
-          { Name: 'four', Model: 'april', Class: 'four is a magic number', NumPassengers: 101, somethingElse: 'remove this'},
-          { Name: 'five', Model: 'may', Class: 'five is a magic number', NumPassengers: 103, somethingElse: 'remove this'},
-          { Name: 'six', Model: 'june', Class: 'six is a magic number', NumPassengers: 104, somethingElse: 'remove this'},
-          { Name: 'seven', Model: 'july', Class: 'seven is a magic number', NumPassengers: 105, somethingElse: 'remove this'},
-        ] };
-        cleanItemList = [
-          { Name: 'three', Model: 'march', Class: 'three is a magic number', NumPassengers: 100},
-          { Name: 'four', Model: 'april', Class: 'four is a magic number', NumPassengers: 101},
-          { Name: 'five', Model: 'may', Class: 'five is a magic number', NumPassengers: 103},
-          { Name: 'six', Model: 'june', Class: 'six is a magic number', NumPassengers: 104},
-          { Name: 'seven', Model: 'july', Class: 'seven is a magic number', NumPassengers: 105},
-        ];
-    })
+      mockmovieObject = { results: [
+        { Name: 'three', Model: 'march', Class: 'three is a magic number', NumPassengers: 100, somethingElse: 'remove this'},
+        { Name: 'four', Model: 'april', Class: 'four is a magic number', NumPassengers: 101, somethingElse: 'remove this'},
+        { Name: 'five', Model: 'may', Class: 'five is a magic number', NumPassengers: 103, somethingElse: 'remove this'},
+        { Name: 'six', Model: 'june', Class: 'six is a magic number', NumPassengers: 104, somethingElse: 'remove this'},
+        { Name: 'seven', Model: 'july', Class: 'seven is a magic number', NumPassengers: 105, somethingElse: 'remove this'}
+      ] };
+      cleanItemList = [
+        { Name: 'three', Model: 'march', Class: 'three is a magic number', NumPassengers: 100},
+        { Name: 'four', Model: 'april', Class: 'four is a magic number', NumPassengers: 101},
+        { Name: 'five', Model: 'may', Class: 'five is a magic number', NumPassengers: 103},
+        { Name: 'six', Model: 'june', Class: 'six is a magic number', NumPassengers: 104},
+        { Name: 'seven', Model: 'july', Class: 'seven is a magic number', NumPassengers: 105}
+      ];
+    });
 
     it('should return an itemList that has been cleaned according the the parameters passed', async () => {
       let mockitemList = await getItemList('vehicles', 1);
-      expect(mockitemList).toEqual(cleanItemList)
-    })
+      expect(Object.keys(mockitemList)).toEqual(Object.keys(cleanItemList));
+    });
 
-  })
+  });
 
 
   describe('getMovieText', () => {
@@ -107,15 +107,15 @@ describe('helper.js', () => {
       
     beforeEach(() => {
       window.fetch = jest.fn().mockImplementation(() => Promise.resolve({ok: true, json: () => Promise.resolve(mockmovieObject)}));
-        mockmovieObject = { results: [
-          { title: 'StarTrek', date: 'December 31 1999', opening: 'Space: the final frontier.  These are the voyages of the starship Enterprise.  Its five-year mission: to explore strange new worlds. To seek out new life and new civilizations.  To boldly go where no man has gone before!', somethingElse: 'info that will later be removed from this object'},
-          { title: 'A Tale of Two Cities', date: 'January 1 2000', opening: 'It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we', somethingElse: 'info that will be taken out of this object'},
-          { title: 'three', date: 'march', opening: 'three is a magic number', somethingElse: 'remove this'},
-          { title: 'four', date: 'april', opening: 'four is a magic number', somethingElse: 'remove this'},
-          { title: 'five', date: 'may', opening: 'five is a magic number', somethingElse: 'remove this'},
-          { title: 'six', date: 'june', opening: 'six is a magic number', somethingElse: 'remove this'},
-          { title: 'seven', date: 'july', opening: 'seven is a magic number', somethingElse: 'remove this'},
-        ] };
+      mockmovieObject = { results: [
+        { title: 'StarTrek', date: 'December 31 1999', opening: 'Space: the final frontier.  These are the voyages of the starship Enterprise.  Its five-year mission: to explore strange new worlds. To seek out new life and new civilizations.  To boldly go where no man has gone before!', somethingElse: 'info that will later be removed from this object'},
+        { title: 'A Tale of Two Cities', date: 'January 1 2000', opening: 'It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we', somethingElse: 'info that will be taken out of this object'},
+        { title: 'three', date: 'march', opening: 'three is a magic number', somethingElse: 'remove this'},
+        { title: 'four', date: 'april', opening: 'four is a magic number', somethingElse: 'remove this'},
+        { title: 'five', date: 'may', opening: 'five is a magic number', somethingElse: 'remove this'},
+        { title: 'six', date: 'june', opening: 'six is a magic number', somethingElse: 'remove this'},
+        { title: 'seven', date: 'july', opening: 'seven is a magic number', somethingElse: 'remove this'}
+      ] };
     });
 
     it('should return just one movie', async () => {
@@ -128,30 +128,30 @@ describe('helper.js', () => {
     let mockuncleanMovies;
       
     beforeEach(() => {
-        mockuncleanMovies = [
-          { title: 'StarTrek', date: 'December 31 1999', opening: 'Space: the final frontier.  These are the voyages of the starship Enterprise.  Its five-year mission: to explore strange new worlds. To seek out new life and new civilizations.  To boldly go where no man has gone before!', somethingElse: 'info that will later be removed from this object'},
+      mockuncleanMovies = [
+        { title: 'StarTrek', date: 'December 31 1999', opening: 'Space: the final frontier.  These are the voyages of the starship Enterprise.  Its five-year mission: to explore strange new worlds. To seek out new life and new civilizations.  To boldly go where no man has gone before!', somethingElse: 'info that will later be removed from this object'},
           
-          { title: 'A Tale of Two Cities', date: 'January 1 2000', opening: 'It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we', somethingElse: 'info that will be taken out of this object'}
-        ];
+        { title: 'A Tale of Two Cities', date: 'January 1 2000', opening: 'It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we', somethingElse: 'info that will be taken out of this object'}
+      ];
     });
 
     it('should return the same number of movies', () => {
       //set-up
       const expected = mockuncleanMovies.length;
-        //execution
+      //execution
         
       let cleanMovies = cleanMovieText(mockuncleanMovies);
-        //expectation
+      //expectation
       expect(cleanMovies.length).toEqual(expected);
-      });
+    });
       
     it('should remove unnecessary information from the movies', () => {
       //set-up
-        const expected = ['title', 'date', 'opening'];
-        //execution
-        let cleanMovies = cleanMovieText(mockuncleanMovies);
-        //expectation
-        expect(Object.keys(cleanMovies[0])).toEqual(expected);
+      const expected = ['title', 'date', 'opening'];
+      //execution
+      let cleanMovies = cleanMovieText(mockuncleanMovies);
+      //expectation
+      expect(Object.keys(cleanMovies[0])).toEqual(expected);
     });
       
   });
@@ -167,11 +167,11 @@ describe('helper.js', () => {
       mockUncleanItemList = {results: [
         { name: 'bob', species: 'human', homeworld: 'Earth', popHome: '500', somethingElse: 'info that will later be removed from this object', residents: []},
         { name: 'bill', species: 'droid', homeworld: 'saturn', popHome: '1500', somethingElse: 'info that will later be removed from this object', residents: []}
-        ]};
+      ]};
       mockCleanItemList = [
         { name: 'bob', species: 'human', homeworld: 'Earth', popHome: '500'},
         { name: 'bill', species: 'droid', homeworld: 'saturn', popHome: '1500'}
-        ];
+      ];
     });
 
     it('should call the right function depending on the page-- people', async () => {

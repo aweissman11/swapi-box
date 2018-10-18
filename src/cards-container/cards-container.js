@@ -17,22 +17,32 @@ class CardsContainer extends Component {
     let pageRepo;
     try {
 
-      switch (currentPage) {
-        case ('people') :
+    switch (currentPage) {
+      case ('people') :
+        if (!localStorage.getItem('people')) {
+          console.log('if');
           pageRepo = await getItemList(currentPage);
+          localStorage.setItem('people', JSON.stringify(pageRepo));
           this.setState({ pageRepo });
-          break;
-        case ('planets') :
-          pageRepo = await getItemList(currentPage);
+          
+        } else {
+          console.log('else');
+          pageRepo = JSON.parse(localStorage.getItem('people'));
           this.setState({ pageRepo });
-          break;
-        case ('vehicles') :
-          pageRepo = await getItemList(currentPage);
-          this.setState({ pageRepo });
-          break;
-        case ('favorites') :
-          if (localStorage.getItem('favorites')) {
-            pageRepo = JSON.parse(localStorage.getItem('favorites'));
+        }
+        break;
+      case ('planets') :
+        pageRepo = await getItemList(currentPage);
+        this.setState({ pageRepo });
+        break;
+      case ('vehicles') :
+        pageRepo = await getItemList(currentPage);
+        this.setState({ pageRepo });
+        break;
+      case ('favorites') :
+        if (localStorage.getItem('favorites')) {
+          pageRepo = JSON.parse(localStorage.getItem('favorites'));
+
             this.setState({ pageRepo });
             break;
           } else {
@@ -55,8 +65,17 @@ class CardsContainer extends Component {
     if (currentPage !== prevProps.currentPage) {
       switch (currentPage) {
         case ('people') :
-          pageRepo = await getItemList(currentPage);
-          this.setState({ pageRepo });
+          if (!localStorage.getItem('people')) {
+            console.log('if');
+            pageRepo = await getItemList(currentPage);
+            localStorage.setItem('people', JSON.stringify(pageRepo));
+            this.setState({ pageRepo });
+          
+          } else {
+            console.log('else');
+            pageRepo = JSON.parse(localStorage.getItem('people'));
+            this.setState({ pageRepo });
+          }
           break;
         case ('planets') :
           pageRepo = await getItemList(currentPage);

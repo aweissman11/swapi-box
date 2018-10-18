@@ -50,6 +50,7 @@ describe('CardsContainer', () => {
     expect(wrapper.instance().state.pageRepo).toEqual([]);
   });
   
+
   it('listCards should list all the cards', () => {
     wrapper = mount(<CardsContainer 
       getItemList={Helper.getItemList}
