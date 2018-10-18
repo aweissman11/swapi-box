@@ -1,0 +1,363 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card should match the snapshot 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Card
+    handleFavorites={[MockFunction]}
+    stats={
+      Object {
+        "Homeworld": "Earth",
+        "Name": "Aaron",
+        "Population": 7000000000,
+        "Species": "Human",
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        Array [
+          <h4
+            className="name"
+          >
+            AARON
+          </h4>,
+          <p
+            className="stat"
+          >
+            Species
+            : 
+            Human
+          </p>,
+          <p
+            className="stat"
+          >
+            Homeworld
+            : 
+            Earth
+          </p>,
+          <p
+            className="stat"
+          >
+            Population
+            : 
+            7000000000
+          </p>,
+        ],
+        <button
+          className="favorite"
+          onClick={[Function]}
+        >
+          <span
+            className="star"
+          >
+            ★
+          </span>
+          Favorite
+        </button>,
+      ],
+      "className": "card",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": "Name",
+        "nodeType": "host",
+        "props": Object {
+          "children": "AARON",
+          "className": "name",
+        },
+        "ref": null,
+        "rendered": "AARON",
+        "type": "h4",
+      },
+      Object {
+        "instance": null,
+        "key": "Species",
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "Species",
+            ": ",
+            "Human",
+          ],
+          "className": "stat",
+        },
+        "ref": null,
+        "rendered": Array [
+          "Species",
+          ": ",
+          "Human",
+        ],
+        "type": "p",
+      },
+      Object {
+        "instance": null,
+        "key": "Homeworld",
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "Homeworld",
+            ": ",
+            "Earth",
+          ],
+          "className": "stat",
+        },
+        "ref": null,
+        "rendered": Array [
+          "Homeworld",
+          ": ",
+          "Earth",
+        ],
+        "type": "p",
+      },
+      Object {
+        "instance": null,
+        "key": "Population",
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "Population",
+            ": ",
+            7000000000,
+          ],
+          "className": "stat",
+        },
+        "ref": null,
+        "rendered": Array [
+          "Population",
+          ": ",
+          7000000000,
+        ],
+        "type": "p",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <span
+              className="star"
+            >
+              ★
+            </span>,
+            "Favorite",
+          ],
+          "className": "favorite",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "★",
+              "className": "star",
+            },
+            "ref": null,
+            "rendered": "★",
+            "type": "span",
+          },
+          "Favorite",
+        ],
+        "type": "button",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          Array [
+            <h4
+              className="name"
+            >
+              AARON
+            </h4>,
+            <p
+              className="stat"
+            >
+              Species
+              : 
+              Human
+            </p>,
+            <p
+              className="stat"
+            >
+              Homeworld
+              : 
+              Earth
+            </p>,
+            <p
+              className="stat"
+            >
+              Population
+              : 
+              7000000000
+            </p>,
+          ],
+          <button
+            className="favorite"
+            onClick={[Function]}
+          >
+            <span
+              className="star"
+            >
+              ★
+            </span>
+            Favorite
+          </button>,
+        ],
+        "className": "card",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "Name",
+          "nodeType": "host",
+          "props": Object {
+            "children": "AARON",
+            "className": "name",
+          },
+          "ref": null,
+          "rendered": "AARON",
+          "type": "h4",
+        },
+        Object {
+          "instance": null,
+          "key": "Species",
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "Species",
+              ": ",
+              "Human",
+            ],
+            "className": "stat",
+          },
+          "ref": null,
+          "rendered": Array [
+            "Species",
+            ": ",
+            "Human",
+          ],
+          "type": "p",
+        },
+        Object {
+          "instance": null,
+          "key": "Homeworld",
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "Homeworld",
+              ": ",
+              "Earth",
+            ],
+            "className": "stat",
+          },
+          "ref": null,
+          "rendered": Array [
+            "Homeworld",
+            ": ",
+            "Earth",
+          ],
+          "type": "p",
+        },
+        Object {
+          "instance": null,
+          "key": "Population",
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "Population",
+              ": ",
+              7000000000,
+            ],
+            "className": "stat",
+          },
+          "ref": null,
+          "rendered": Array [
+            "Population",
+            ": ",
+            7000000000,
+          ],
+          "type": "p",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <span
+                className="star"
+              >
+                ★
+              </span>,
+              "Favorite",
+            ],
+            "className": "favorite",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "★",
+                "className": "star",
+              },
+              "ref": null,
+              "rendered": "★",
+              "type": "span",
+            },
+            "Favorite",
+          ],
+          "type": "button",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;

@@ -36,7 +36,7 @@ class Card extends Component {
     return (
       <div className='card' >
         {
-          Object.keys(this.props.stats).map( (stat, i) => {
+          Object.keys(this.props.stats).map( (stat) => {
             if (stat === 'Name') {
               return (
                 <h4 key={stat} className='name'>{this.props.stats[stat].toUpperCase()}</h4>

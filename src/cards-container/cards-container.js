@@ -15,6 +15,7 @@ class CardsContainer extends Component {
   async componentDidMount() {
     const { getItemList, currentPage } = this.props;
     let pageRepo;
+    try {
 
     switch (currentPage) {
       case ('people') :
@@ -41,14 +42,19 @@ class CardsContainer extends Component {
       case ('favorites') :
         if (localStorage.getItem('favorites')) {
           pageRepo = JSON.parse(localStorage.getItem('favorites'));
-          this.setState({ pageRepo });
-          break;
-        } else {
-          this.setState({ pageRepo: [] });
-          break;
-        }
-      default:
-        console.log(`Somehow, you've managed to escape`);
+
+            this.setState({ pageRepo });
+            break;
+          } else {
+            this.setState({ pageRepo: [] });
+            break;
+          }
+        default:
+          console.log(`Somehow, you've managed to escape`);
+      }
+    } catch (error) {
+      console.error(error.message);
+     
     }
   }
     
