@@ -149,9 +149,7 @@ class CardsContainer extends Component {
             </div> : 
             <div className='cards-container'>
               <div className='container'>
-                <h1>STAR WARS</h1>
-                <h2>The Return of the Semi</h2>
-                <h2>{this.props.currentPage}</h2>
+                <h1>The {this.props.currentPage} of STAR WARS</h1>
                 <div className='cards'>
                   { this.listCards() }
                 </div>

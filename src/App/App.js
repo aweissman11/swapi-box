@@ -15,8 +15,20 @@ class App extends Component {
       movie: {},
       currentPage: 'home',
       pageRepo: [],
-      pages: ['Home', 'People', 'Planets', 'Vehicles', 'Favorites']
+      pages: ['Home', 'People', 'Planets', 'Vehicles', 'Favorites'],
+      totalFavorites: this.getTotalFavorites()
     };
+  }
+
+  getTotalFavorites = () => {
+    if (localStorage.getItem('favorites')) {
+      // this.setState({totalFavorites: JSON.parse(localStorage.getItem('favorites')).length})
+      return JSON.parse(localStorage.getItem('favorites')).length;
+
+    } else {
+      // this.setState({totalFavorites: 0})
+      return 0;
+    }
   }
 
   changePage = async (currentPage) => {
@@ -56,17 +68,19 @@ class App extends Component {
       const storageStats = JSON.stringify([stats]);
       localStorage.setItem('favorites', storageStats);
     }
+    this.setState({totalFavorites: this.getTotalFavorites()})
   }
 
   render() {
-    const { currentPage, movie, pages } = this.state;
+    const { currentPage, movie, pages, totalFavorites } = this.state;
 
     return (
       <div className="App">
         <Navigation
-          changePage={ this.changePage }
-          currentPage={ currentPage }
-          pages={ pages }
+          changePage={this.changePage}
+          currentPage={currentPage}
+          pages={pages}
+          totalFavorites={totalFavorites}
         />
         <Route exact path='/' render={({ match }) => {
           return <ScrollSection
