@@ -29,20 +29,18 @@ describe('Card', () => {
   it('should match the snapshot', () => {
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('should run favoriteThis onClick of .favorite', () => {
+    wrapper.find('.favorite').simulate('click');
+    expect(mockHandleFavorites).toBeCalledWith(stats);
+  });
   
   it('should pass in the stats on favoriteThis', () => {
-    wrapper = mount(<Card 
-      stats={stats} 
-      handleFavorites={mockHandleFavorites} 
-    />);
-    // console.log(wrapper.find('.favorite'));
-    // console.log('wrapper.find():', wrapper.find('.favorite'));
-    // wrapper.find('favorite').simulate('click');
-    // expect(mockHandleFavorites).toBeCalled();
+    wrapper.find('.favorite').simulate('click');
+    expect(mockHandleFavorites).toBeCalled();
   });
   
   it('should start as not being favorited', () => {
     expect(wrapper.instance().state.isFavorited).toBe(false);
   });
-
 });
