@@ -20,7 +20,10 @@ describe('Card', () => {
     };
     mockHandleFavorites = jest.fn();
 
-    wrapper = shallow(<Card stats={stats} handleFavorites={mockHandleFavorites} />);
+    wrapper = shallow(<Card 
+      stats={stats} 
+      handleFavorites={mockHandleFavorites} 
+    />);
     
     
   });
@@ -30,7 +33,10 @@ describe('Card', () => {
   });
   
   it('should pass in the stats on favoriteThis', () => {
-    wrapper = mount(<Card stats={stats} handleFavorites={mockHandleFavorites} />);
+    wrapper = mount(<Card 
+      stats={stats} 
+      handleFavorites={mockHandleFavorites} 
+    />);
     console.log(wrapper.find('.favorite'));
     // console.log('wrapper.find():', wrapper.find('.favorite'));
     // wrapper.find('favorite').simulate('click');
