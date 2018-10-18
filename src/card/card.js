@@ -54,8 +54,8 @@ class Card extends Component {
         >
           {
             (this.state.isFavorited) ?
-              <span className='star'>☆</span> :
-              <span className='star'>★</span>
+              <span className='star'>★</span> :
+              <span className='star'>☆</span>
           }
         Favorite</button>
       </div>
