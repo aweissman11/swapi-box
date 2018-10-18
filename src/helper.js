@@ -59,8 +59,8 @@ export const cleanVehicles = async (uncleanVehicles) => {
     return ({
       Name: vehicle.name,
       Model: vehicle.model,
-      Class: vehicle.class,
-      NumPassengers: vehicle.passengers
+      Class: vehicle.vehicle_class,
+      Passengers: vehicle.passengers
     });
   });
   return Promise.all(unresolvedPromises);
