@@ -16,8 +16,8 @@ export const randomNumber = () => {
 export const getMovieText = async () => {
   const url = 'https://swapi.co/api/films/';
   //const uncleanMovies = await fetchCall(url);
-  const response = await fetch(url)
-  const uncleanMovies = await response.json()
+  const response = await fetch(url);
+  const uncleanMovies = await response.json();
   const movies = await cleanMovieText(uncleanMovies.results);
   return movies[randomNumber()];
 };

@@ -8,7 +8,7 @@ class Navigation extends Component {
 
 
   render() {
-    const { changePage, pages, currentPage, totalFavorites } = this.props;
+    const { totalFavorites } = this.props;
     // const themeSong = new Audio('./theme-song.mp3')
     return (
       <div className='navigation'>

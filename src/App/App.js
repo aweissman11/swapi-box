@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, NavLink } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 import ScrollSection from '../scroll-section/scroll-section';
 import CardsContainer from '../cards-container/cards-container';
@@ -43,8 +43,8 @@ class App extends Component {
     try {
       const movie = await getMovieText();
       this.setState({ movie });
-    } catch(error){
-      throw new Error('These are not the data you are looking for...  Are you connected to the internet?  If so, please wait, the API is likely down.')
+    } catch (error){
+      throw new Error('These are not the data you are looking for...  Are you connected to the internet?  If so, please wait, the API is likely down.');
     }
   }
 
@@ -65,7 +65,7 @@ class App extends Component {
       const storageStats = JSON.stringify([stats]);
       localStorage.setItem('favorites', storageStats);
     }
-    this.setState({totalFavorites: this.getTotalFavorites()})
+    this.setState({totalFavorites: this.getTotalFavorites()});
   }
 
   render() {
@@ -81,35 +81,35 @@ class App extends Component {
         />
         <Route exact path='/' render={({ match }) => {
           return <ScrollSection
-            movie={movie} />
+            movie={movie} />;
         }} />
         <Route exact path='/people' render={({ match }) => {
           return <CardsContainer
-              currentPage='people'
-              getItemList={getItemList}
-              handleFavorites={this.handleFavorites}
-            />
+            currentPage='people'
+            getItemList={getItemList}
+            handleFavorites={this.handleFavorites}
+          />;
         }} />
         <Route exact path='/planets' render={({ match }) => {
           return <CardsContainer
-              currentPage='planets'
-              getItemList={getItemList}
-              handleFavorites={this.handleFavorites}
-            />
+            currentPage='planets'
+            getItemList={getItemList}
+            handleFavorites={this.handleFavorites}
+          />;
         }} />
         <Route exact path='/vehicles' render={({ match }) => {
           return <CardsContainer
-              currentPage='vehicles'
-              getItemList={getItemList}
-              handleFavorites={this.handleFavorites}
-            />
+            currentPage='vehicles'
+            getItemList={getItemList}
+            handleFavorites={this.handleFavorites}
+          />;
         }} />
         <Route exact path='/favorites' render={({ match }) => {
           return <CardsContainer
-              currentPage='favorites'
-              getItemList={getItemList}
-              handleFavorites={this.handleFavorites}
-            />
+            currentPage='favorites'
+            getItemList={getItemList}
+            handleFavorites={this.handleFavorites}
+          />;
         }} />
       </div>
     );
@@ -117,14 +117,14 @@ class App extends Component {
 }
 
 export default App;
-        // {
-        //   (currentPage === 'home') ? 
-        //     <ScrollSection 
-        //       movie={ movie }
-        //     /> : 
-        //     <CardsContainer
-        //       currentPage={currentPage}
-        //       getItemList={getItemList}
-        //       handleFavorites={this.handleFavorites}
-        //     />
-        // }
+// {
+//   (currentPage === 'home') ? 
+//     <ScrollSection 
+//       movie={ movie }
+//     /> : 
+//     <CardsContainer
+//       currentPage={currentPage}
+//       getItemList={getItemList}
+//       handleFavorites={this.handleFavorites}
+//     />
+// }
