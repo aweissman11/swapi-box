@@ -17,40 +17,40 @@ class CardsContainer extends Component {
     let pageRepo;
     try {
 
-    switch (currentPage) {
-      case ('people') :
-        if (!localStorage.getItem('people')) {
-          pageRepo = await getItemList(currentPage);
-          localStorage.setItem('people', JSON.stringify(pageRepo));
-          this.setState({ pageRepo });
-        } else {
-          pageRepo = JSON.parse(localStorage.getItem('people'));
-          this.setState({ pageRepo });
-        }
-        break;
-      case ('planets') :
-        if (!localStorage.getItem('planets')) {
-          pageRepo = await getItemList(currentPage);
-          localStorage.setItem('planets', JSON.stringify(pageRepo));
-          this.setState({ pageRepo });
-        } else {
-          pageRepo = JSON.parse(localStorage.getItem('planets'));
-          this.setState({ pageRepo });
-        }
-        break;
-      case ('vehicles') :
-        if (!localStorage.getItem('vehicles')) {
-          pageRepo = await getItemList(currentPage);
-          localStorage.setItem('vehicles', JSON.stringify(pageRepo));
-          this.setState({ pageRepo });
-        } else {
-          pageRepo = JSON.parse(localStorage.getItem('vehicles'));
-          this.setState({ pageRepo });
-        }
-        break;
-      case ('favorites') :
-        if (localStorage.getItem('favorites')) {
-          pageRepo = JSON.parse(localStorage.getItem('favorites'));
+      switch (currentPage) {
+        case ('people') :
+          if (!localStorage.getItem('people')) {
+            pageRepo = await getItemList(currentPage);
+            localStorage.setItem('people', JSON.stringify(pageRepo));
+            this.setState({ pageRepo });
+          } else {
+            pageRepo = JSON.parse(localStorage.getItem('people'));
+            this.setState({ pageRepo });
+          }
+          break;
+        case ('planets') :
+          if (!localStorage.getItem('planets')) {
+            pageRepo = await getItemList(currentPage);
+            localStorage.setItem('planets', JSON.stringify(pageRepo));
+            this.setState({ pageRepo });
+          } else {
+            pageRepo = JSON.parse(localStorage.getItem('planets'));
+            this.setState({ pageRepo });
+          }
+          break;
+        case ('vehicles') :
+          if (!localStorage.getItem('vehicles')) {
+            pageRepo = await getItemList(currentPage);
+            localStorage.setItem('vehicles', JSON.stringify(pageRepo));
+            this.setState({ pageRepo });
+          } else {
+            pageRepo = JSON.parse(localStorage.getItem('vehicles'));
+            this.setState({ pageRepo });
+          }
+          break;
+        case ('favorites') :
+          if (localStorage.getItem('favorites')) {
+            pageRepo = JSON.parse(localStorage.getItem('favorites'));
             this.setState({ pageRepo });
             break;
           } else {
@@ -123,6 +123,7 @@ class CardsContainer extends Component {
         key={stats.Name}
         stats={stats}
         handleFavorites={this.props.handleFavorites}
+        currentPage={this.props.currentPage}
       />
     ));
   }

@@ -8,7 +8,8 @@ class Card extends Component {
     super(props);
 
     this.state = {
-      isFavorited: false
+      isFavorited: false,
+      nowRemoved: ''
     };
   }
 
@@ -19,9 +20,11 @@ class Card extends Component {
   isFavorited = () => {
     if (localStorage.getItem('favorites')) {
       let allFavorites = JSON.parse(localStorage.getItem('favorites'));
-      return (allFavorites.find( favorite => (
+      if (allFavorites.find( favorite => (
         favorite.Name === this.props.stats.Name)
-      )); 
+      )) {
+        return true;
+      } 
     } else {
       return false;
     }
@@ -29,7 +32,17 @@ class Card extends Component {
 
   favoriteThis = (stats) => {
     this.props.handleFavorites(stats);
-    this.setState({ isFavorited: !this.state.isFavorited });
+    if (this.state.isFavorited === true) {
+      this.setState({
+        nowRemoved: 'This card will be removed on refresh',
+        isFavorited: !this.state.isFavorited
+      });
+    } else {
+      this.setState({
+        nowRemoved: '',
+        isFavorited: !this.state.isFavorited
+      });
+    }
   }
 
   render() {
@@ -48,6 +61,13 @@ class Card extends Component {
             }
           })
         }
+        <div>
+          {
+            (this.props.currentPage == 'favorites') ? 
+              <p>{this.state.nowRemoved}</p> :
+              <p></p>
+          }
+        </div>
         <button 
           className='favorite'
           onClick={() => this.favoriteThis(this.props.stats)}
