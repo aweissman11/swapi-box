@@ -27,14 +27,19 @@ ShallowWrapper {
         <div
           className="container"
         >
-          <div>
-            <div
-              className="cards"
-            >
-              <h1>
-                 Repo Loading... 
-              </h1>
-            </div>
+          <h1
+            className="page-title"
+          >
+            The 
+            people
+             of STAR WARS
+          </h1>
+          <div
+            className="cards-grid"
+          >
+            <h1>
+               Repo Loading... 
+            </h1>
           </div>
         </div>
       </div>,
@@ -48,14 +53,19 @@ ShallowWrapper {
         "children": <div
           className="container"
         >
-          <div>
-            <div
-              className="cards"
-            >
-              <h1>
-                 Repo Loading... 
-              </h1>
-            </div>
+          <h1
+            className="page-title"
+          >
+            The 
+            people
+             of STAR WARS
+          </h1>
+          <div
+            className="cards-grid"
+          >
+            <h1>
+               Repo Loading... 
+            </h1>
           </div>
         </div>,
         "className": "cards-container",
@@ -66,33 +76,47 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": <div>
-            <div
-              className="cards"
+          "children": Array [
+            <h1
+              className="page-title"
             >
-              <h1>
-                 Repo Loading... 
-              </h1>
-            </div>
-          </div>,
-          "className": "container",
-        },
-        "ref": null,
-        "rendered": Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": <div
-              className="cards"
+              The 
+              people
+               of STAR WARS
+            </h1>,
+            <div
+              className="cards-grid"
             >
               <h1>
                  Repo Loading... 
               </h1>
             </div>,
+          ],
+          "className": "container",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "The ",
+                "people",
+                " of STAR WARS",
+              ],
+              "className": "page-title",
+            },
+            "ref": null,
+            "rendered": Array [
+              "The ",
+              "people",
+              " of STAR WARS",
+            ],
+            "type": "h1",
           },
-          "ref": null,
-          "rendered": Object {
+          Object {
             "instance": null,
             "key": undefined,
             "nodeType": "host",
@@ -100,7 +124,7 @@ ShallowWrapper {
               "children": <h1>
                  Repo Loading... 
               </h1>,
-              "className": "cards",
+              "className": "cards-grid",
             },
             "ref": null,
             "rendered": Object {
@@ -116,8 +140,7 @@ ShallowWrapper {
             },
             "type": "div",
           },
-          "type": "div",
-        },
+        ],
         "type": "div",
       },
       "type": "div",
@@ -136,14 +159,19 @@ ShallowWrapper {
           <div
             className="container"
           >
-            <div>
-              <div
-                className="cards"
-              >
-                <h1>
-                   Repo Loading... 
-                </h1>
-              </div>
+            <h1
+              className="page-title"
+            >
+              The 
+              people
+               of STAR WARS
+            </h1>
+            <div
+              className="cards-grid"
+            >
+              <h1>
+                 Repo Loading... 
+              </h1>
             </div>
           </div>
         </div>,
@@ -157,14 +185,19 @@ ShallowWrapper {
           "children": <div
             className="container"
           >
-            <div>
-              <div
-                className="cards"
-              >
-                <h1>
-                   Repo Loading... 
-                </h1>
-              </div>
+            <h1
+              className="page-title"
+            >
+              The 
+              people
+               of STAR WARS
+            </h1>
+            <div
+              className="cards-grid"
+            >
+              <h1>
+                 Repo Loading... 
+              </h1>
             </div>
           </div>,
           "className": "cards-container",
@@ -175,33 +208,47 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": <div>
-              <div
-                className="cards"
+            "children": Array [
+              <h1
+                className="page-title"
               >
-                <h1>
-                   Repo Loading... 
-                </h1>
-              </div>
-            </div>,
-            "className": "container",
-          },
-          "ref": null,
-          "rendered": Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": <div
-                className="cards"
+                The 
+                people
+                 of STAR WARS
+              </h1>,
+              <div
+                className="cards-grid"
               >
                 <h1>
                    Repo Loading... 
                 </h1>
               </div>,
+            ],
+            "className": "container",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "The ",
+                  "people",
+                  " of STAR WARS",
+                ],
+                "className": "page-title",
+              },
+              "ref": null,
+              "rendered": Array [
+                "The ",
+                "people",
+                " of STAR WARS",
+              ],
+              "type": "h1",
             },
-            "ref": null,
-            "rendered": Object {
+            Object {
               "instance": null,
               "key": undefined,
               "nodeType": "host",
@@ -209,7 +256,7 @@ ShallowWrapper {
                 "children": <h1>
                    Repo Loading... 
                 </h1>,
-                "className": "cards",
+                "className": "cards-grid",
               },
               "ref": null,
               "rendered": Object {
@@ -225,8 +272,7 @@ ShallowWrapper {
               },
               "type": "div",
             },
-            "type": "div",
-          },
+          ],
           "type": "div",
         },
         "type": "div",
