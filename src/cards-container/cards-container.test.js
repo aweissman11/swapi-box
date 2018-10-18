@@ -35,17 +35,13 @@ describe('CardsContainer', () => {
         Population: 56789
       }
     ];
-
-    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({ 
-      ok: true, json: () => Promise.resolve(mockList)
-    }));
   });
   
   it('should match the snapshot', () => {
     expect(wrapper).toMatchSnapshot();
   });
   
-  it('should start with pageRepo in state', () => {
+  it('should start with empty pageRepo in state', () => {
     wrapper = mount(<CardsContainer 
       getItemList={Helper.getItemList}
       currentPage={currentPage}
@@ -54,7 +50,7 @@ describe('CardsContainer', () => {
     expect(wrapper.instance().state.pageRepo).toEqual([]);
   });
   
-  it('should list all the cards', () => {
+  it('listCards should list all the cards', () => {
     wrapper = mount(<CardsContainer 
       getItemList={Helper.getItemList}
       currentPage={currentPage}

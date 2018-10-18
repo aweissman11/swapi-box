@@ -15,31 +15,36 @@ class CardsContainer extends Component {
   async componentDidMount() {
     const { getItemList, currentPage } = this.props;
     let pageRepo;
+    try {
 
-    switch (currentPage) {
-      case ('people') :
-        pageRepo = await getItemList(currentPage);
-        this.setState({ pageRepo });
-        break;
-      case ('planets') :
-        pageRepo = await getItemList(currentPage);
-        this.setState({ pageRepo });
-        break;
-      case ('vehicles') :
-        pageRepo = await getItemList(currentPage);
-        this.setState({ pageRepo });
-        break;
-      case ('favorites') :
-        if (localStorage.getItem('favorites')) {
-          pageRepo = JSON.parse(localStorage.getItem('favorites'));
+      switch (currentPage) {
+        case ('people') :
+          pageRepo = await getItemList(currentPage);
           this.setState({ pageRepo });
           break;
-        } else {
-          this.setState({ pageRepo: [] });
+        case ('planets') :
+          pageRepo = await getItemList(currentPage);
+          this.setState({ pageRepo });
           break;
-        }
-      default:
-        console.log(`Somehow, you've managed to escape`);
+        case ('vehicles') :
+          pageRepo = await getItemList(currentPage);
+          this.setState({ pageRepo });
+          break;
+        case ('favorites') :
+          if (localStorage.getItem('favorites')) {
+            pageRepo = JSON.parse(localStorage.getItem('favorites'));
+            this.setState({ pageRepo });
+            break;
+          } else {
+            this.setState({ pageRepo: [] });
+            break;
+          }
+        default:
+          console.log(`Somehow, you've managed to escape`);
+      }
+    } catch (error) {
+      console.error(error.message);
+     
     }
   }
     
