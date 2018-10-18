@@ -22,11 +22,8 @@ class App extends Component {
 
   getTotalFavorites = () => {
     if (localStorage.getItem('favorites')) {
-      // this.setState({totalFavorites: JSON.parse(localStorage.getItem('favorites')).length})
       return JSON.parse(localStorage.getItem('favorites')).length;
-
     } else {
-      // this.setState({totalFavorites: 0})
       return 0;
     }
   }
@@ -47,7 +44,7 @@ class App extends Component {
       const movie = await getMovieText();
       this.setState({ movie });
     } catch(error){
-      // do something for the user
+      throw new Error('These are not the data you are looking for...  Are you connected to the internet?  If so, please wait, the API is likely down.')
     }
   }
 
