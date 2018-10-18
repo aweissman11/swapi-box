@@ -18,8 +18,17 @@ class CardsContainer extends Component {
 
     switch (currentPage) {
       case ('people') :
-        pageRepo = await getItemList(currentPage);
-        this.setState({ pageRepo });
+        if (!localStorage.getItem('people')) {
+          console.log('if');
+          pageRepo = await getItemList(currentPage);
+          localStorage.setItem('people', JSON.stringify(pageRepo));
+          this.setState({ pageRepo });
+          
+        } else {
+          console.log('else');
+          pageRepo = JSON.parse(localStorage.getItem('people'));
+          this.setState({ pageRepo });
+        }
         break;
       case ('planets') :
         pageRepo = await getItemList(currentPage);
@@ -50,8 +59,17 @@ class CardsContainer extends Component {
     if (currentPage !== prevProps.currentPage) {
       switch (currentPage) {
         case ('people') :
-          pageRepo = await getItemList(currentPage);
-          this.setState({ pageRepo });
+          if (!localStorage.getItem('people')) {
+            console.log('if');
+            pageRepo = await getItemList(currentPage);
+            localStorage.setItem('people', JSON.stringify(pageRepo));
+            this.setState({ pageRepo });
+          
+          } else {
+            console.log('else');
+            pageRepo = JSON.parse(localStorage.getItem('people'));
+            this.setState({ pageRepo });
+          }
           break;
         case ('planets') :
           pageRepo = await getItemList(currentPage);
