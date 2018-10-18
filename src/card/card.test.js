@@ -5,13 +5,11 @@ import Card from './card';
 
 describe('Card', () => {
 
-  let isFavorited;
   let stats;
   let mockHandleFavorites;
   let wrapper;
 
   beforeEach(() => {
-    isFavorited = false;
     stats = {
       Name: 'Aaron',
       Species: 'Human',
@@ -37,7 +35,7 @@ describe('Card', () => {
       stats={stats} 
       handleFavorites={mockHandleFavorites} 
     />);
-    console.log(wrapper.find('.favorite'));
+    // console.log(wrapper.find('.favorite'));
     // console.log('wrapper.find():', wrapper.find('.favorite'));
     // wrapper.find('favorite').simulate('click');
     // expect(mockHandleFavorites).toBeCalled();

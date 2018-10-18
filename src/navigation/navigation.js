@@ -46,7 +46,7 @@ Navigation.propTypes = {
   changePage: PropTypes.func.isRequired,
   pages: PropTypes.array.isRequired,
   currentPage: PropTypes.string.isRequired
-}
+};
 
 export default Navigation;
 
