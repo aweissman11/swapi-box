@@ -12,8 +12,8 @@ class Navigation extends Component {
     // const themeSong = new Audio('./theme-song.mp3')
     return (
       <div className='navigation'>
-        <ul>
-          <NavLink to='/' onClick={() => changePage('navigation')}>
+        <ul className='nav-ul'>
+          <NavLink to='/' onClick={() => changePage('home')}>
             <li 
               className={currentPage === 'home' ? 'current-nav-btn' : 'nav-btn'}
             >

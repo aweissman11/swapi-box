@@ -136,21 +136,20 @@ class CardsContainer extends Component {
           (pageRepo.length < 1) ?
             <div className='cards-container'>
               <div className='container'>
-                <div>
-                  <div className='cards'>
-                    {
-                      (this.props.currentPage === 'favorites') ?
-                        <h1>You haven't favorited anything yet</h1> :
-                        <h1> Repo Loading... </h1>
-                    }
-                  </div>
-                </div> 
+                <h1 className='page-title'>The {this.props.currentPage} of STAR WARS</h1>
+                <div className='cards-grid'>
+                  {
+                    (this.props.currentPage === 'favorites') ?
+                      <h1>You haven't favorited anything yet</h1> :
+                      <h1> Repo Loading... </h1>
+                  }
+                </div>
               </div>
             </div> : 
             <div className='cards-container'>
               <div className='container'>
-                <h1>The {this.props.currentPage} of STAR WARS</h1>
-                <div className='cards'>
+                <h1 className='page-title'>The {this.props.currentPage} of STAR WARS</h1>
+                <div className='cards-grid'>
                   { this.listCards() }
                 </div>
               </div>

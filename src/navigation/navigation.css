@@ -5,9 +5,14 @@
   z-index: 9000;
   width: 100vw;
   margin: auto;
+}
+
+.nav-ul {
+  padding: 0;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  
 }
 
 .navigation ul {
@@ -20,6 +25,7 @@
 
 .current-nav-btn,
 .nav-btn {
+  margin: 10px;
   border-radius: 20px;
   height: 40px;
   line-height: 40px;
