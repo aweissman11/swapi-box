@@ -24,7 +24,11 @@ export const getMovieText = async () => {
 
 export const cleanMovieText = (uncleanMovies) => {
   const cleanMovies = uncleanMovies.map(movie => {
-    return ({title: movie.title, date: movie.release_date, opening: movie.opening_crawl});
+    return ({
+      title: movie.title,
+      date: movie.release_date,
+      opening: movie.opening_crawl
+    });
   });
   return cleanMovies;
 };
