@@ -1,21 +1,8 @@
-/*.title {
-  color: red;
-}
-
-.subTitle {
-  color: green;
-}
-
-.text {
-  color: blue;
-}*/
-
 .crawler {
   background-image: url('./stars.jpg') !important;
   height: 100vh !important;
 }
 
 .crawler div {
-  width: 120% !important;
-  left: -10% !important;
+  width: 120vw !important;
 }

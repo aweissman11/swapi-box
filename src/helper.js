@@ -89,7 +89,7 @@ export const getResidents = async (residents) => {
   if (residents.length) {
     const unresolvedPromises = residents.map( async (resident) => {
       const person = await fetchCall(resident);
-      return person.name;
+      return (person.name + ' ');
     });
   
     return Promise.all(unresolvedPromises);
