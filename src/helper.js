@@ -24,7 +24,11 @@ export const getMovieText = async () => {
 
 export const cleanMovieText = (uncleanMovies) => {
   const cleanMovies = uncleanMovies.map(movie => {
-    return ({title: movie.title, date: movie.release_date, opening: movie.opening_crawl});
+    return ({
+      title: movie.title,
+      date: movie.release_date,
+      opening: movie.opening_crawl
+    });
   });
   return cleanMovies;
 };
@@ -85,7 +89,7 @@ export const getResidents = async (residents) => {
   if (residents.length) {
     const unresolvedPromises = residents.map( async (resident) => {
       const person = await fetchCall(resident);
-      return person.name;
+      return (person.name + ' ');
     });
   
     return Promise.all(unresolvedPromises);
