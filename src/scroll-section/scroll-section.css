@@ -1,9 +1,5 @@
 :root {
   --gold: rgb(164 100 37);
-  --tan: rgb(183 161 124);
-  --lightTan: rgb(192 180 157);
-  --accentBlue: rgb(0 124 230);
-  --accentRed: rgb(174 0 0);
 }
 
 * {
@@ -16,6 +12,5 @@
 }
 
 .crawler div {
-  width: 120% !important;
-  left: -10% !important;
+  width: 120vw !important;
 }
