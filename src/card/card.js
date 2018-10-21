@@ -48,37 +48,40 @@ class Card extends Component {
   render() {
     return (
       <div className='card' >
-        {
-          Object.keys(this.props.stats).map( (stat) => {
-            if (stat === 'Name') {
-              return (
-                <h4 key={stat} className='name'>{this.props.stats[stat].toUpperCase()}</h4>
-              );
-            } else {
-              return (
-                <p key={stat} className='stat'>{stat}: {this.props.stats[stat]}</p>
-              );
-            }
-          })
-        }
-        <div>
-          {
-            (this.props.currentPage === 'favorites') ? 
-              <p>{this.state.nowRemoved}</p> :
-              <p></p>
-          }
-        </div>
         <button 
           className='favorite'
-          onClick={() => this.favoriteThis(this.props.stats)}
-        >
+          onClick={() => this.favoriteThis(this.props.stats)}>
           {
             (this.state.isFavorited) ?
               <span className='star'>★</span> :
               <span className='star'>☆</span>
           }
-        Favorite</button>
-      </div>
+        </button>
+        <section className ='text'>
+          {
+            Object.keys(this.props.stats).map( (stat) => {
+              if (stat === 'Name') {
+                return (
+                  <h4 key={stat} className='name'>
+                    {this.props.stats[stat].toUpperCase()} 
+                  </h4>
+                );
+              } else {
+                return (
+                  <p key={stat} className='stat'>{stat}: {this.props.stats[stat]}</p>
+                );
+              }
+            })
+          }
+          <div>
+            {
+              (this.props.currentPage === 'favorites') ? 
+                <p>{this.state.nowRemoved}</p> :
+                <p></p>
+            }
+          </div>
+          </section>
+        </div>
     );
   }
 }

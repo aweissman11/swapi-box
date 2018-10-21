@@ -1,10 +1,19 @@
+:root {
+  --gold: rgb(164 100 37);
+  --tan: rgb(183 161 124);
+  --lightTan: rgb(192 180 157);
+  --accentBlue: rgb(0 124 230);
+  --accentRed: rgb(174 0 0);
+}
+
 .navigation {
   position: absolute;
   top: 40px;
-  color: white;
+  color: var(--white);
   z-index: 9000;
   width: 100vw;
   margin: auto;
+  text-align: center;
 }
 
 .nav-ul {
@@ -13,6 +22,15 @@
   justify-content: space-between;
   flex-wrap: wrap;
   
+}
+
+a.active {
+  color: blue;
+  background-color: transparent;
+}
+
+a {
+  color: black;
 }
 
 .navigation ul {
@@ -33,21 +51,26 @@
 }
 
 .nav-btn {
-  background-color: rgba(229, 197, 67, .7);
+  background: var(--lightTan);
+  padding: 0px, 5px;
+  border: 3px solid var(--tan);
+  color: black;
 }
 
 .nav-btn:hover {
   transform: scale(1.05);
-  border-color: #ffc600;
-  box-shadow: 0 0 1rem #ffc600;
+  border-color: var(--accentRed);
+  box-shadow: 0 0 1rem var(--gold);
 }
 
 .nav-btn:active {
+  color: var(--black);
+  background: var(--tan);
   transform: scale(.95);
-  border-color: #fff;
   box-shadow: 0 0 1rem #fff;
+  border: 3px solid var(--accentBlue);
 }
 
 .current-nav-btn {
-  border: .5px solid rgba(229, 197, 67, .7);
+  border: 3px solid var(--accentBlue);
 }
