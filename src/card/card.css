@@ -72,6 +72,7 @@ section {
   color: var(--accentRed);
   border-radius: 20px;
   border: transparent;
+  transform: scale(1.2);
 }
 
 .favorite:active {

@@ -12,35 +12,50 @@ class Navigation extends Component {
     return (
       <div className='navigation'>
         <ul className='nav-ul'>
-          <NavLink className='nav-link-home' to='/' onClick={() => changePage('home')}>
+          <NavLink 
+            className='nav-link-home'
+            to='/' 
+            onClick={() => changePage('home')}>
             <li 
               className={currentPage === 'home' ? 'current-nav-btn' : 'nav-btn'}
             >
               Home
             </li>
           </NavLink>
-          <NavLink className='nav-link-people' to='/people' onClick={() => changePage('people')}>
+          <NavLink 
+            className='nav-link-people'
+            to='/people' 
+            onClick={() => changePage('people')}>
             <li 
               className={currentPage === 'people' ? 'current-nav-btn' : 'nav-btn'}
             >
               People
             </li>
           </NavLink>
-          <NavLink className='nav-link-planets' to='/planets' onClick={() => changePage('planets')}>
+          <NavLink 
+            className='nav-link-planets'
+            to='/planets' 
+            onClick={() => changePage('planets')}>
             <li 
               className={currentPage === 'planets' ? 'current-nav-btn' : 'nav-btn'}
             >
               Planets
             </li>          
           </NavLink>
-          <NavLink className='nav-link-vehicles' to='/vehicles' onClick={() => changePage('vehicles')}>
+          <NavLink 
+            className='nav-link-vehicles'
+            to='/vehicles' 
+            onClick={() => changePage('vehicles')}>
             <li 
               className={currentPage === 'vehicles' ? 'current-nav-btn' : 'nav-btn'}
             >
               Vehicles
             </li>
           </NavLink>
-          <NavLink className='nav-link-favorites' to='/favorites' onClick={() => changePage('favorites')}>
+          <NavLink 
+            className='nav-link-favorites'
+            to='/favorites' 
+            onClick={() => changePage('favorites')}>
             <li 
               className={currentPage === 'favorites' ? 'current-nav-btn' : 'nav-btn'}
             >
