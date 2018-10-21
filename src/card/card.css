@@ -1,30 +1,81 @@
+:root {
+  --gold: rgb(164 100 37);
+  --tan: rgb(183 161 124);
+  --lightTan: rgb(192 180 157);
+  --accentBlue: rgb(0 124 230);
+  --accentRed: rgb(174 0 0);
+  --black: rgb(0 0 0);
+}
+
 .card {
-  background-color: rgba(229, 197, 67, .7);
+  background-color: var(--lightTan);;
   border-radius: 20px;
+  /*height: 18rem;*/
+  padding: 20px;
+  display: grid;
+  justify-items: end;
+  position: relative;
+  color: var(--black);
+  border: var(--tan) solid 8px;
 }
 
 .name {
-  color: black;
+  color: var(--black);
   font-size: 1.3em;
-  margin: 10px auto;
+  margin: 25px auto;
+  grid-column: 1;
+  padding: 5px;
 }
 
 .stat {
   margin: 5px auto;
 }
 
+button {
+  border-radius: 50%;
+  height: 2.25rem;
+  width: 2.25rem;
+  grid-column: 2;
+  position: absolute;
+  margin: 10px;
+  border: transparent;
+}
+
+button:focus {
+  outline: 0;
+}
+
+section {
+/*  display: grid;
+  grid-template-columns: 2;*/
+  /*justify-items: center;*/
+  width: 100%;
+  /*text-align: center;*/
+}
+ 
+ .star {
+  border: transparent;
+}
+
 .favorite {
-  background-color: yellow;
-  border-radius: 20px;
-  font-size: 1.3em;
-  margin: 10px auto;
+  background-color: transparent;
+  font-size: 1.3rem;
+  top: 0;
   filter: drop-shadow(6px 6px 6px black);
+  cursor: pointer;
+  color: var(--accentBlue);
+  border: transparent;
 }
 
 .favorite:hover {
-  background-color: gray;
+  background-color: transparent;
+  color: var(--accentRed);
+  border-radius: 20px;
+  border: transparent;
 }
 
 .favorite:active {
   filter: drop-shadow(0 0 0);
+  /*border-radius: 20px;*/
+   border: transparent;
 }

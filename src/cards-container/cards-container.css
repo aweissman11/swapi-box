@@ -2,9 +2,17 @@
   margin: 0;
 }
 
+:root {
+  --gold: rgb(164 100 37);
+  --tan: rgb(183 161 124);
+  --lightTan: rgb(192 180 157);
+  --accentBlue: rgb(0 124 230);
+  --accentRed: rgb(174 0 0);
+}
+
 .cards-container {
   background-image: url('../scroll-section/stars.jpg');
-  color: white;
+  color: var(--tan);
   min-height: 100vh;
   height: 100%;
 }
@@ -16,28 +24,30 @@
 }
 
 .page-title {
-  margin: 0 20px 10px;
+  margin: 0 20px 20px;
+  text-align: center;
+  color: var(--gold);
 }
 
 .cards-grid {
-  border: yellow 2px solid;
+  border: var(--gold) 10px solid;
   border-radius: 20px;
   display: grid;
   grid-gap: 15px;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
   margin: auto;
   padding: 10px;
   width: 80%;
 }
 
-@media screen and (max-width: 751px) {
+@media screen and (max-width: 787px) {
   .container {
     padding-top: 170px;
   }
 }
 
-@media screen and (max-width: 449px) {
+@media screen and (max-width: 473px) {
   .container {
-    padding-top: 220px;
+    padding-top: 240px;
   }
 }

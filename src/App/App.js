@@ -77,32 +77,32 @@ class App extends Component {
           currentPage={currentPage}
           totalFavorites={totalFavorites}
         />
-        <Route exact path='/' render={({ match }) => {
+        <Route exact path='/' render={() => {
           return <ScrollSection
             movie={movie} />;
         }} />
-        <Route exact path='/people' render={({ match }) => {
+        <Route exact path='/people' render={() => {
           return <CardsContainer
             currentPage='people'
             getItemList={getItemList}
             handleFavorites={this.handleFavorites}
           />;
         }} />
-        <Route exact path='/planets' render={({ match }) => {
+        <Route exact path='/planets' render={() => {
           return <CardsContainer
             currentPage='planets'
             getItemList={getItemList}
             handleFavorites={this.handleFavorites}
           />;
         }} />
-        <Route exact path='/vehicles' render={({ match }) => {
+        <Route exact path='/vehicles' render={() => {
           return <CardsContainer
             currentPage='vehicles'
             getItemList={getItemList}
             handleFavorites={this.handleFavorites}
           />;
         }} />
-        <Route exact path='/favorites' render={({ match }) => {
+        <Route exact path='/favorites' render={() => {
           return <CardsContainer
             currentPage='favorites'
             getItemList={getItemList}

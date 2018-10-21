@@ -1,3 +1,11 @@
+:root {
+  --gold: rgb(164 100 37);
+}
+
+* {
+  color: var(--gold);
+}
+
 .crawler {
   background-image: url('./stars.jpg') !important;
   height: 100vh !important;

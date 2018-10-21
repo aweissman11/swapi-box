@@ -65,6 +65,7 @@ export const cleanVehicles = async (uncleanVehicles) => {
       Model: vehicle.model,
       Class: vehicle.vehicle_class,
       Passengers: vehicle.passengers
+      // Picture: `./${vehicle.name}.jpeg`
     });
   });
   return Promise.all(unresolvedPromises);
