@@ -2,7 +2,7 @@
   --gold: rgb(164 100 37);
 }
 
-* {
+.title, .subTitle, .text {
   color: var(--gold);
 }
 
