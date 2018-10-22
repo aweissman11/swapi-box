@@ -17,7 +17,8 @@ class Navigation extends Component {
             to='/' 
             onClick={() => changePage('home')}>
             <li 
-              className={currentPage === 'home' ? 'current-nav-btn' : 'nav-btn'}
+              className={currentPage === 'home' ? 
+                'current-nav-btn' : 'nav-btn'}
             >
               Home
             </li>
@@ -27,7 +28,8 @@ class Navigation extends Component {
             to='/people' 
             onClick={() => changePage('people')}>
             <li 
-              className={currentPage === 'people' ? 'current-nav-btn' : 'nav-btn'}
+              className={currentPage === 'people' ? 
+                'current-nav-btn' : 'nav-btn'}
             >
               People
             </li>
@@ -37,7 +39,8 @@ class Navigation extends Component {
             to='/planets' 
             onClick={() => changePage('planets')}>
             <li 
-              className={currentPage === 'planets' ? 'current-nav-btn' : 'nav-btn'}
+              className={currentPage === 'planets' ? 
+                'current-nav-btn' : 'nav-btn'}
             >
               Planets
             </li>          
@@ -47,7 +50,8 @@ class Navigation extends Component {
             to='/vehicles' 
             onClick={() => changePage('vehicles')}>
             <li 
-              className={currentPage === 'vehicles' ? 'current-nav-btn' : 'nav-btn'}
+              className={currentPage === 'vehicles' ? 
+                'current-nav-btn' : 'nav-btn'}
             >
               Vehicles
             </li>
@@ -57,7 +61,8 @@ class Navigation extends Component {
             to='/favorites' 
             onClick={() => changePage('favorites')}>
             <li 
-              className={currentPage === 'favorites' ? 'current-nav-btn' : 'nav-btn'}
+              className={currentPage === 'favorites' ? 
+                'current-nav-btn' : 'nav-btn'}
             >
               Favorites [{totalFavorites}]
             </li>

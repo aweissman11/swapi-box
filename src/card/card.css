@@ -10,7 +10,6 @@
 .card {
   background-color: var(--lightTan);;
   border-radius: 20px;
-  /*height: 18rem;*/
   padding: 20px;
   display: grid;
   justify-items: end;
@@ -46,11 +45,7 @@ button:focus {
 }
 
 section {
-/*  display: grid;
-  grid-template-columns: 2;*/
-  /*justify-items: center;*/
   width: 100%;
-  /*text-align: center;*/
 }
  
  .star {
@@ -62,8 +57,8 @@ section {
   font-size: 1.3rem;
   top: 0;
   filter: drop-shadow(6px 6px 6px black);
-  cursor: pointer;
   color: var(--accentBlue);
+  cursor: pointer;
   border: transparent;
 }
 
@@ -77,6 +72,5 @@ section {
 
 .favorite:active {
   filter: drop-shadow(0 0 0);
-  /*border-radius: 20px;*/
    border: transparent;
 }

@@ -47,6 +47,24 @@ class App extends Component {
     }
   }
 
+  componentDidUpdate() {
+    this.checkCurrentPage();
+  }
+  
+  checkCurrentPage = () => {
+    const newCurrentPage = window.location.pathname.slice(1);
+    if (newCurrentPage === this.state.currentPage 
+      || (this.state.currentPage === 'home' && newCurrentPage.length < 1)) {
+      return;
+    }
+
+    if (newCurrentPage.length) {
+      this.setState({ currentPage: newCurrentPage});
+    } else {
+      this.setState({ currentPage: 'home' });
+    }
+  }
+
   handleFavorites = (stats) => {
 
     if (localStorage.getItem('favorites')) {
